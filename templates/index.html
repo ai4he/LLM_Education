@@ -9,6 +9,7 @@
             //outputDiv.innerHTML = 'Processing ...';
             const outputDiv = document.getElementById('output');
             const session_id = document.getElementById('session_id').value;
+            // const session_id = '';
 
             const response = await fetch('{{ url_for("submit") }}', {
                 method: 'POST',
