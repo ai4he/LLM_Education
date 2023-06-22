@@ -12,7 +12,7 @@
             event.preventDefault();
             //outputDiv.innerHTML = 'Processing ...';
             const outputDiv = document.getElementById('output');
-            //const session_id = document.getElementById('session_id').value;
+            const session_id = document.getElementById('session_id').value;
             const outputDivLes = document.getElementById('outputLesson');
             const response = await fetch('/submit', {
                 method: 'POST',
