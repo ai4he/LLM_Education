@@ -56,13 +56,13 @@ img{
 }
 
 .element--1{
-    background-color: slateblue;
+    /*background-color: slateblue;*/
     grid-area: e1;
     /*grid-row: 1/3;*/
 }
 
 .element--2{
-    background-color: goldenrod;
+    /*background-color: goldenrod;*/
     grid-area: e2;
     /*grid-row-start: 2;
     grid-row-end: 3;
@@ -72,7 +72,7 @@ img{
 
 
 .element--3{
-    background-color: seagreen;
+   /* background-color: seagreen;*/
     grid-area: e3;
     font-size: 20px;
 }
