@@ -12,8 +12,8 @@
             event.preventDefault();
             //outputDiv.innerHTML = 'Processing ...';
             const outputDiv = document.getElementById('output');
-            const session_id = document.getElementById('session_id').value;
-
+            //const session_id = document.getElementById('session_id').value;
+            const outputDivLes = document.getElementById('outputLesson');
             const response = await fetch('/submit', {
                 method: 'POST',
                 headers: {
@@ -33,8 +33,9 @@
                 // `;
                 outputDiv.innerHTML = JSON.stringify(data);
                 if (data.hasOwnProperty('session_id')) {
-                    document.getElementById('session_id').value = data.session_id;
+                   // document.getElementById('session_id').value = data.session_id;
                     outputDiv.innerHTML = data.sections.GENERATE_SCENARIO;
+                    outputDivLes.innerHTML=data.sections.GENERATE_LESSON;
                 }
             } else {
                 outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
@@ -55,7 +56,7 @@
             <img src="/static/img/undraw_Learning_re_32qv.png" alt="">
         </div>
         <div class="element element--9">Lecture explanation </div>
-        <div class="element element--10"></div>
+        <div class="element element--10", id="outputLesson"></div>
         <div class="element element--11"></div>
         <div class="element element--12">Vocabulary</div>
         <div class="element element--13"></div>
