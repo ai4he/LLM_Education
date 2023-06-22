@@ -105,6 +105,7 @@ img{
 
 .element--10{
     grid-area: e10;
+    font-size: 15px;
     background-color: #fff;
     padding-right: 2px; 
 }
