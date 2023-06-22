@@ -89,7 +89,7 @@ img{
     grid-area: e6;
 }
 .element--7{
-    background-color: sienna;
+   /* background-color: sienna;*/
     grid-area: e7;
 }
 .element--8{
