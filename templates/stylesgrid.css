@@ -56,7 +56,7 @@ img{
 }
 
 .element--1{
-    background-color: slateblue;
+   /* background-color: slateblue;*/
     grid-area: e1;
     /*grid-row: 1/3;*/
 }
