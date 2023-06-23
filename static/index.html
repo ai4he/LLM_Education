@@ -46,7 +46,7 @@
 
         <div class="element element--11"></div>
         <div class="element element--12"></div>
-        <div class="element element--13"> <button><a href="javascript:next()">NEXT</a></button></div>
+        <div class="element element--13"> <button><a href="javascript:load_state2()">NEXT</a></button></div>
         <div class="element element--14"></div>
         <div class="element element--15"></div>
         <div class="element element--16">
@@ -68,9 +68,9 @@
     </section>
 
     <section class="container" id="state2">
-        <div class="element element--1"><a href="/?page=index.html">Home</a></div>
-        <div class="element element--2"><a href="/?page=conversation.html">Speaking</a></div>
-        <div class="element element--3"><a href="/?page=multiplechoice.html">Exercises</a></div>
+        <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
+        <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
         <div class="element element--4"></div>
         <div class="element element--5"></div>
         <div class="element element--7">What destination do you explore?</div>
@@ -99,18 +99,63 @@
         <div class="element element--19"></div>
 
     </section>
+
+    <section class="container" id="state3">
+        <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
+        <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
+        <div class="element element--4"></div>
+
+        <div class="element element--5">Let's practice with multiple choice</div>
+        <div class="element element--7"></div>
+        <div class="element element--8">
+            <img src="/static/img/undraw_Books_re_8gea.png" alt="">
+        </div>
+        <div class="element element--9"></div>
+        <div class="element element--10">  <button>A</button></div>
+        <div class="element element--11">  <button>B</button></div>
+        <div class="element element--12">  <button>C</button></div>
+        <div class="element element--13">  <button>D</button></div>
+        <div class="element element--14">
+            <button>NEXT</button>
+            <form onsubmit="submitForm(event)">
+                <label for="session_id">Session ID:</label>
+                <input type="text" name="session_id" id="session_id">
+                <br>
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
+        <div class="element element--15"></div>
+        <div class="element element--16", id="exercise"></div>
+        <div class="element element--17"></div>
+        <div class="element element--18"></div>
+        <div class="element element--19"></div>
+    </section>
+    
     <script>
-        function init() {
+        function load_style(filename) {
+            document.getElementById('dynamic_css').href = filename;
+        }
+        
+        function load_state1() {
+            load_style("/static/stylesgrid.css")
             $("#state1").show();
             $("#state2").hide();
+            $("#state3").hide();
         }
-        function next() {
+        function load_state2() {
             $("#state1").hide();
-            let cssFileName = "/static/stylesconversa.css"
-            document.getElementById('dynamic_css').href = cssFileName;
+            load_style("/static/stylesconversa.css")
             $("#state2").show();
+            $("#state3").hide();
         }
-        init();
+        function load_state3() {
+            $("#state1").hide();
+            $("#state2").hide();
+            load_style("/static/multiple.css")
+            $("#state3").show();
+        }
+        load_state1();
     </script>
 </body>
 </html>
