@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/static/stylesgrid.css">
-    <link rel="stylesheet" href="/static/stylesconversa.css">
+    <link id="dynamic_css" rel="stylesheet" href="/static/stylesgrid.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
@@ -107,6 +106,8 @@
         }
         function next() {
             $("#state1").hide();
+            let cssFileName = "/static/stylesconversa.css"
+            document.getElementById('dynamic_css').href = cssFileName;
             $("#state2").show();
         }
         init();
