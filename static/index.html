@@ -7,59 +7,6 @@
     <title>Home</title>
     <link id="dynamic_css" rel="stylesheet" href="/static/stylesgrid.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        var session_id = '';
-        var states = {
-            
-        }
-        async function submitForm(input_val) {
-            // event.preventDefault();
-            //outputDiv.innerHTML = 'Processing ...';
-            var outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = 'Processing ...';
-            let params = {
-                session_id: session_id
-            }
-            if (input_val) {
-                params['input_val'] = input_val;
-            }
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams(params)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log(data);
-                // outputDiv.innerHTML = `
-                //     <h2>Submitted Values</h2>
-                //     <p><strong>Session ID:</strong> ${data.session_id}</p>
-                //     <p><strong>Goal:</strong> ${data.goal}</p>
-                //     <p><strong>Activities:</strong> ${data.activities}</p>
-                // `;
-                outputDiv.innerHTML = JSON.stringify(data);
-                if (data.hasOwnProperty('session_id')) {
-                   // document.getElementById('session_id').value = data.session_id;
-                    if (data.hasOwnProperty('sections')) {
-                        if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
-                            $("#outputLesson").val(data.sections.GENERATE_LESSON);
-                        }
-                        if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
-                            $("#outputScenario").val(data.sections.GENERATE_SCENARIO);
-                        }
-                        if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
-                            $("#exercise").val(data.sections.GENERATE_JSON_TASK);
-                        }
-                    }
-                }
-            } else {
-                outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
-            }
-        }
-    </script>
 </head>
 <body>
     <!--Flex container-->
@@ -215,6 +162,63 @@
             submitForm(null);
         }
         init();
+    </script>
+    <script>
+        var session_id = '';
+        var states = {
+            
+        }
+        async function submitForm(input_val) {
+            // event.preventDefault();
+            //outputDiv.innerHTML = 'Processing ...';
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = 'Processing ...';
+            let params = {
+                session_id: session_id
+            }
+            if (input_val) {
+                params['input_val'] = input_val;
+            }
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(params)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+                // outputDiv.innerHTML = `
+                //     <h2>Submitted Values</h2>
+                //     <p><strong>Session ID:</strong> ${data.session_id}</p>
+                //     <p><strong>Goal:</strong> ${data.goal}</p>
+                //     <p><strong>Activities:</strong> ${data.activities}</p>
+                // `;
+                outputDiv.innerHTML = JSON.stringify(data);
+                console.log(1);
+                if (data.hasOwnProperty('session_id')) {
+                    console.log(2);
+                   // document.getElementById('session_id').value = data.session_id;
+                    if (data.hasOwnProperty('sections')) {
+                        console.log(3);
+                        if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
+                            console.log(4);
+                            $("#outputLesson").val(data.sections.GENERATE_LESSON);
+                        }
+                        if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
+                            $("#outputScenario").val(data.sections.GENERATE_SCENARIO);
+                        }
+                        if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
+                            $("#exercise").val(data.sections.GENERATE_JSON_TASK);
+                        }
+                    }
+                }
+            } else {
+                outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
+            }
+        }
     </script>
 </body>
 </html>
