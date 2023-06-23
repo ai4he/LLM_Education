@@ -95,7 +95,7 @@ img{
 
 .element--5{
     grid-area: e5;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .element--6{
@@ -117,19 +117,22 @@ img{
 
 .element--10{
     grid-area: e10;
+    font-size: 15px;
 }
 
 .element--11{
     grid-area: e11;
+    font-size: 15px;
 }
 
 .element--12{
     grid-area: e12;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 .element--13{
     grid-area: e13;
+    font-size: 15px;
 }
 .element--14{
     grid-area: e14;
