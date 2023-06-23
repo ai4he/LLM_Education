@@ -6,6 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>multichoice</title>
     <link rel="stylesheet" href="/static/multiple.css">
+     <script>
+        async function submitForm(event) {
+            
+            event.preventDefault();
+            //outputDiv.innerHTML = 'Processing ...';
+            const outputDiv = document.getElementById('exercise');
+            const session_id = document.getElementById('session_id').value;
+            //const outputDivLes = document.getElementById('feedback');
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ session_id })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+
+                // outputDiv.innerHTML = `
+                //     <h2>Submitted Values</h2>
+                //     <p><strong>Session ID:</strong> ${data.session_id}</p>
+                //     <p><strong>Goal:</strong> ${data.goal}</p>
+                //     <p><strong>Activities:</strong> ${data.activities}</p>
+                // `;
+                outputDiv.innerHTML = JSON.stringify(data);
+                if (data.hasOwnProperty('session_id')) {
+                   // document.getElementById('session_id').value = data.session_id;
+                    outputDiv.innerHTML = data.sections.GENERATE_TASK;
+                    //outputDivLes.innerHTML=data.sections.GENERATE_FEEDBACK;
+                }
+            } else {
+                outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
+            }
+        }
+    </script>
+
+    
 </head>
 <body>
 
@@ -27,8 +65,14 @@
         <div class="element element--13">  <button>D</button></div>
         <div class="element element--14">
             <button>NEXT</button>
+            <form onsubmit="submitForm(event)">
+                <label for="session_id">Session ID:</label>
+                <input type="text" name="session_id" id="session_id">
+                <br>
+                <input type="submit" value="Submit">
+            </form> 
         </div>
-        <div class="element element--15"></div>
+        <div class="element element--15", id="exercise"></div>
         <div class="element element--16"></div>
         <div class="element element--17"></div>
         <div class="element element--18"></div>
