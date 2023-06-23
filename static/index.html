@@ -207,7 +207,11 @@
             load_style("/static/multiple.css")
             $("#state3").show();
         }
-        load_state1();
+        function init() {
+            load_state1();
+            submitForm(null);
+        }
+        init():
     </script>
 </body>
 </html>
