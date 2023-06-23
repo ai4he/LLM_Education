@@ -14,7 +14,7 @@
             const outputDiv = document.getElementById('output');
             const session_id = document.getElementById('session_id').value;
             const outputDivLes = document.getElementById('outputLesson');
-            const response = await fetch('/submit', {
+            const response = await fetch('/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -46,9 +46,9 @@
 <body>
 
     <section class="container">
-        <div class="element element--1"><a href="/submit?page=index.html">Home</a></div>
-        <div class="element element--2"><a href="/submit?page=conversation.html">Speaking</a></div>
-        <div class="element element--3"><a href="/submit?page=multiplechoice.html">Exercises</a></div>
+        <div class="element element--1"><a href="/?page=index.html">Home</a></div>
+        <div class="element element--2"><a href="/?page=conversation.html">Speaking</a></div>
+        <div class="element element--3"><a href="/?page=multiplechoice.html">Exercises</a></div>
         <div class="element element--4"></div>
         <div class="element element--5"></div>
         <div class="element element--7">What destination do you explore?</div>
