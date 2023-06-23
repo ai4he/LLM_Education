@@ -173,14 +173,13 @@
                     if (data.hasOwnProperty('sections')) {
                         console.log(3);
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
-                            console.log(4);
-                            $("#outputLesson").val(data.sections.GENERATE_LESSON);
+                            $("#outputLesson").html(data.sections.GENERATE_LESSON);
                         }
                         if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
-                            $("#outputScenario").val(data.sections.GENERATE_SCENARIO);
+                            $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
                         }
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
-                            $("#exercise").val(data.sections.GENERATE_JSON_TASK);
+                            $("#exercise").html(data.sections.GENERATE_JSON_TASK);
                         }
                     }
                 }
