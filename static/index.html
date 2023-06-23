@@ -138,16 +138,16 @@
         }
         
         function load_state1() {
-            load_style("/static/stylesgrid.css")
-            $("#state1").show();
             $("#state2").hide();
             $("#state3").hide();
+            load_style("/static/stylesgrid.css")
+            $("#state1").show();
         }
         function load_state2() {
             $("#state1").hide();
+            $("#state3").hide();
             load_style("/static/stylesconversa.css")
             $("#state2").show();
-            $("#state3").hide();
         }
         function load_state3() {
             $("#state1").hide();
