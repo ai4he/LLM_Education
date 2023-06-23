@@ -154,6 +154,14 @@
             //outputDiv.innerHTML = 'Processing ...';
             var outputDiv = document.getElementById('output');
             outputDiv.innerHTML = 'Processing ...';
+            var btn1 = document.getElementById('a_');
+            //btn1.addEventListener('click',checkAnswer);
+            var btn2 = document.getElementById('b_');
+            //btn2.addEventListener('click',checkAnswer);
+            var btn3 = document.getElementById('c_');
+            //btn3.addEventListener('click',checkAnswer);
+            var btn4 = document.getElementById('d_');
+            //btn4.addEventListener('click',checkAnswer);
             let params = {
                 session_id: session_id
             }
@@ -233,6 +241,24 @@
             load_state1();
             submitForm(null);
         }
+
+   <!--     function checkAnswer(event){
+            const selectedButton = event.target;
+
+            if (selecedButton.id === 'a_'){
+                resultElement.textContent = ;
+            }
+            if (selecedButton.id === 'b_'){
+                resultElement.textContent = ;
+            }
+           if (selecedButton.id === 'c_'){
+                resultElement.textContent = ;
+            }
+           if (selecedButton.id === 'd_'){
+                resultElement.textContent = ;
+            }
+        } 
+    -->
         
         init();
     </script>
