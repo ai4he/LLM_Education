@@ -46,7 +46,7 @@
 
         <div class="element element--11"></div>
         <div class="element element--12"></div>
-        <div class="element element--13"> <button><a href="/?page=conversation.html">NEXT</a></button></div>
+        <div class="element element--13"> <button><a href="javascript:next()">NEXT</a></button></div>
         <div class="element element--14"></div>
         <div class="element element--15"></div>
         <div class="element element--16">
@@ -103,6 +103,10 @@
         function init() {
             $("#state1").show();
             $("#state2").hide();
+        }
+        function next() {
+            $("#state1").hide();
+            $("#state2").show();
         }
         init();
     </script>
