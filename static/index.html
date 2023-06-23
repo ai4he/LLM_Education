@@ -192,8 +192,8 @@
                         }
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
-                            $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options);
-                            //$("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
+                            $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
+                            $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
                         }
                     }
                 }
