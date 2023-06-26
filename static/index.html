@@ -114,19 +114,19 @@
         <div class="element element--9"></div>
         <div class="element element--10">
             <div id="a_"> </div>
-            <button>A</button>
+            <button onclick="checkAnswer()">A</button>
         </div>
         <div class="element element--11"> 
             <div id="b_"> </div>
-            <button>B</button>
+            <button onclick="checkAnswer()">B</button>
         </div>
         <div class="element element--12">
             <div id="c_"> </div>
-            <button>C</button>
+            <button onclick="checkAnswer()">C</button>
         </div>
         <div class="element element--13">
             <div id="d_"> </div>
-            <button>D</button>
+            <button onclick="checkAnswer()">D</button>
         </div>
         <div class="element element--14">
             <button>NEXT</button>
@@ -137,7 +137,7 @@
                 <input type="submit" value="Submit">
             </form>  -->
         </div>
-        <div class="element element--15"></div>
+        <div class="element element--15" id="feedback"></div>
         <div class="element element--16" id="exercise"></div>
         <div class="element element--17"></div>
         <div class="element element--18"></div>
@@ -242,23 +242,28 @@
             submitForm(null);
         }
 
-   /*     function checkAnswer(event){
-            const selectedButton = event.target;
+   
+      function checkAnswer(){
+    
+    	switch(task_correct_answer) {
+    	  case 1:
+    	   $("#feedback").html("well 1");
+    	    break;
+    	  case 2:
+    	    $("#feedback").html("well 2");
+    	    break;
+    	  case 3:
+    	    $("#feedback").html("well 3");
+    	    break;
+    	  case 4:
+    	    $("#feedback").html("well 4");
+    	    break;	   
+    
+    	}
+    
+                
+     } 
 
-            if (selecedButton.id === 'a_'){
-                resultElement.textContent = ;
-            }
-            if (selecedButton.id === 'b_'){
-                resultElement.textContent = ;
-            }
-           if (selecedButton.id === 'c_'){
-                resultElement.textContent = ;
-            }
-           if (selecedButton.id === 'd_'){
-                resultElement.textContent = ;
-            }
-        } 
-    */
         
         init();
     </script>
