@@ -234,6 +234,7 @@
                 outputDiv.innerHTML = JSON.stringify(data);
                 console.log(1);
                 if (data.hasOwnProperty('session_id')) {
+                    session_id = data.session_id;
                     console.log(2);
                    // document.getElementById('session_id').value = data.session_id;
                     if (data.hasOwnProperty('sections')) {
