@@ -83,7 +83,7 @@
         <div class="element element--12">Vocabulary</div>
         <div class="element element--13"></div>
         <div class="element element--14">
-            <button>Wishing to excercise your skills?</button>
+            <button><a href="javascript:load_state4()">Wishing to excercise your skills?</a></button>
         </div>
         <div class="element element--15"></div>
         <div class="element element--16" id="outputScenario">
@@ -143,6 +143,52 @@
         <div class="element element--18"></div>
         <div class="element element--19"></div>
     </section>
+
+    <section class="container" id="state4">
+        <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
+        <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
+        <div class="element element--4"></div>
+
+        <div class="element element--5">Let's practice with Open writing</div>
+        <div class="element element--7"></div>
+        <div class="element element--8">
+            <img src="/static/img/undraw_Books_re_8gea.png" alt="">
+        </div>
+        <div class="element element--9"></div>
+        <div class="element element--10">
+            <div id="a_"> </div>
+            <button onclick="checkAnswer()">A</button>
+            <input>
+        </div>
+        <div class="element element--11"> 
+            <div id="b_"> </div>
+            <button onclick="checkAnswer()">B</button>
+        </div>
+        <div class="element element--12">
+            <div id="c_"> </div>
+            <button onclick="checkAnswer()">C</button>
+        </div>
+        <div class="element element--13">
+            <div id="d_"> </div>
+            <button onclick="checkAnswer()">D</button>
+        </div>
+        <div class="element element--14">
+            <button>NEXT</button>
+<!--             <form onsubmit="submitForm(event)">
+                <label for="session_id">Session ID:</label>
+                <input type="text" name="session_id" id="session_id">
+                <br>
+                <input type="submit" value="Submit">
+            </form>  -->
+        </div>
+        <div class="element element--15" id="feedback"></div>
+        <div class="element element--16" id="exercise"></div>
+        <div class="element element--17"></div>
+        <div class="element element--18"></div>
+        <div class="element element--19"></div>
+    </section>
+    
 
     <div id="output"></div>
     
@@ -219,6 +265,7 @@
         function load_state1() {
             $("#state2").hide();
             $("#state3").hide();
+            $("#state4").hide();
             load_style("/static/stylesgrid.css")
             $("#state1").show();
         }
@@ -226,6 +273,7 @@
         function load_state2() {
             $("#state1").hide();
             $("#state3").hide();
+            $("#state4").hide();
             load_style("/static/stylesconversa.css")
             $("#state2").show();
         }
@@ -233,8 +281,17 @@
         function load_state3() {
             $("#state1").hide();
             $("#state2").hide();
+            $("#state4").hide();
             load_style("/static/multiple.css")
             $("#state3").show();
+        }
+
+        function load_state4() {
+            $("#state1").hide();
+            $("#state2").hide();
+            $("#state3").hide();
+            load_style("/static/multiple.css")
+            $("#state4").show();
         }
         
         function init() {
