@@ -155,13 +155,13 @@
             var outputDiv = document.getElementById('output');
             outputDiv.innerHTML = 'Processing ...';
             var btn1 = document.getElementById('a_');
-            //btn1.addEventListener('click',checkAnswer);
+            btn1.addEventListener('click',checkAnswer);
             var btn2 = document.getElementById('b_');
-            //btn2.addEventListener('click',checkAnswer);
+            btn2.addEventListener('click',checkAnswer);
             var btn3 = document.getElementById('c_');
-            //btn3.addEventListener('click',checkAnswer);
+            btn3.addEventListener('click',checkAnswer);
             var btn4 = document.getElementById('d_');
-            //btn4.addEventListener('click',checkAnswer);
+            btn4.addEventListener('click',checkAnswer);
             let params = {
                 session_id: session_id
             }
@@ -200,10 +200,10 @@
                         }
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
-                            $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
-                            $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
-                            $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
-                            $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);
+                            $("#btn1").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
+                            $("#btn2").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
+                            $("#btn3").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
+                            $("#btn4").html(data.sections.GENERATE_JSON_TASK.task_options[3]);
                         }
                     }
                 }
