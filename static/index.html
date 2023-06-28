@@ -114,19 +114,19 @@
         <div class="element element--9"></div>
         <div class="element element--10">
             <div id="a_"> </div>
-            <button onclick="checkAnswer()">A</button>
+            <button onclick="checkAnswer('1')">A</button>
         </div>
         <div class="element element--11"> 
             <div id="b_"> </div>
-            <button onclick="checkAnswer()">B</button>
+            <button onclick="checkAnswer('2')">B</button>
         </div>
         <div class="element element--12">
             <div id="c_"> </div>
-            <button onclick="checkAnswer()">C</button>
+            <button onclick="checkAnswer('3')">C</button>
         </div>
         <div class="element element--13">
             <div id="d_"> </div>
-            <button onclick="checkAnswer()">D</button>
+            <button onclick="checkAnswer('4')">D</button>
         </div>
         <div class="element element--14">
             <button>NEXT</button>
@@ -194,7 +194,7 @@
     
     <script>
         var session_id = '';
-
+        let e, x;
         async function submitForm(input_val) {
             // event.preventDefault();
             //outputDiv.innerHTML = 'Processing ...';
@@ -247,10 +247,10 @@
                         }
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
-                            $("#btn1").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
-                            $("#btn2").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
-                            $("#btn3").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
-                            $("#btn4").html(data.sections.GENERATE_JSON_TASK.task_options[3]);
+                            $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
+                            $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
+                            $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
+                            $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);
                         }
                     }
                 }
@@ -301,9 +301,11 @@
         }
 
    
-      function checkAnswer(){
-    
-    	switch(2) {
+      function checkAnswer(e){
+          sumitForm(e)
+      //}
+      //function checkfeedback(e){  
+    	switch(e) {
     	  case 1:
     	   $("#feedback").html("well 1");
     	    break;
