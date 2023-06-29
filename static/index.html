@@ -247,9 +247,7 @@
                             $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
                         }
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
-                            $("#exerc").click(function(){
-                                
-                                if(data.sections.GENERATE_JSON_TASK.task_type=="multiple_choice"){
+                          
                                     $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
                                     $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
                                     $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
@@ -257,17 +255,13 @@
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
                                     
-                                }
-                                else{
+                               
                                     $("#a_").hide();
                                     $("#b_").hide();
                                     $("#c_").hide();
                                     $("#d_").hide();
                                     $("#writing").show();
-                                    
 
-                                    
-                                }
                             }
 
                           
