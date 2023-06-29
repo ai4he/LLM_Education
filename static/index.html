@@ -70,7 +70,7 @@
     <section class="container" id="state2">
         <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
         <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
-        <div class="element element--3"><button id="exerc" >Exercises</button></div>
+        <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
         <div class="element element--4"></div>
         <div class="element element--5"></div>
         <div class="element element--7">What destination do you explore?</div>
@@ -83,7 +83,7 @@
         <div class="element element--12">Vocabulary</div>
         <div class="element element--13"></div>
         <div class="element element--14">
-            <button id="exerc"><a href="javascript:load_state4()">Wishing to excercise your skills?</a></button>
+            <button><a href="javascript:load_state4()">Wishing to excercise your skills?</a></button>
         </div>
         <div class="element element--15"></div>
         <div class="element element--16" id="outputScenario">
@@ -253,20 +253,8 @@
                                     $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
                                     $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
-                                    $("#writing").hide();
-                                    
-                               
-                                    /*$("#a_").hide();
-                                    $("#b_").hide();
-                                    $("#c_").hide();
-                                    $("#d_").hide();
-                                    $("#writing").show();
-                                
-                            }
+                                   // $("#writing").hide();
 
-                          
-                                
-                            }*/
                         }
                     }
                 }
