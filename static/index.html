@@ -263,8 +263,9 @@
                                 console.log(data.sections.GENERATE_JSON_TASK);
                                 data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK);
                                 console.log(data.sections.GENERATE_JSON_TASK);
-                                $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
+                                
                             }
+                            $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
                             if(data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
 
                                 if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
