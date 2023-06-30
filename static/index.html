@@ -259,7 +259,9 @@
                         if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
 
                                 $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
-
+                            if(!data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
+                                data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK);
+                            }
                             if(data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
 
                                 if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
