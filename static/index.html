@@ -130,7 +130,7 @@
             <button id="btn_d" onclick="checkAnswer('4')">D</button>
         </div>
         <div class="element element--14">
-            <button>NEXT</button>
+            <button id= "Next" onclick="next()" >NEXT</button>
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
                 <input type="text" name="session_id" id="session_id">
@@ -339,9 +339,11 @@
             submitForm(null);
         }
 
-   
+      function next(e){
+         submitForm(e) 
+      }
       function checkAnswer(e){
-          submitForm(e)
+          //submitForm(e)
           $("#btn_a").prop("disabled",true);
           $("#btn_b").prop("disabled",true);
           $("#btn_c").prop("disabled",true);
