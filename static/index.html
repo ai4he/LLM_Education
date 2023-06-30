@@ -268,7 +268,7 @@
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
                             if(data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
 
-                                if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'Multiple choice exercise'){
+                                if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
                                     $("#btn_a").show();
                                     $("#btn_b").show();
                                     $("#btn_c").show();
@@ -289,23 +289,10 @@
                                     $("#d_").hide();
                                     $("#writing").show();
                                 }
-                            }    
+                                }
                         }
-                  /*  if (data.sections.hasOwnProperty('FINAL_SURVEY_INTRO')) {  
-                                    $("#btn_a").hide();
-                                    $("#btn_b").hide();
-                                    $("#btn_c").hide();
-                                    $("#btn_d").hide();
-                                    $("#a_").hide();
-                                    $("#b_").hide();
-                                    $("#c_").hide();
-                                    $("#d_").hide();
-                                    $("#writing").hide();
-                        if (data.sections.hasOwnProperty('FINAL_SURVEY_QUESTION')) {
-                            
-                        }
-                    }// if of final_survey_Intro
-                }//if of property sections */
+                    }
+                }
             } else {
                 outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
             }
