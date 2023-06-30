@@ -283,6 +283,10 @@
                                     $("#btn_b").hide();
                                     $("#btn_c").hide();
                                     $("#btn_d").hide();
+                                    $("#a_").hide();
+                                    $("#b_").hide();
+                                    $("#c_").hide();
+                                    $("#d_").hide();
                                     $("#writing").show();
                                 }
                                 }
@@ -346,16 +350,16 @@
       //function checkfeedback(e){  
     	switch(e) {
     	  case '1':
-    	   $("#feedback").html("well 1");
+    	   $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[0]);
     	    break;
     	  case '2':
-    	    $("#feedback").html("well 2");
+    	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[1]);
     	    break;
     	  case '3':
-    	    $("#feedback").html("well 3");
+    	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[2]);
     	    break;
     	  case '4':
-    	    $("#feedback").html("well 4");
+    	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[3]);
     	    break;	   
     
     	}
