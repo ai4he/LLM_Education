@@ -228,7 +228,11 @@
                                     $("#btn_a").show();
                                     $("#btn_b").show();
                                     $("#btn_c").show();
-                                    $("#btn_d").show();               
+                                    $("#btn_d").show();    
+                                    $("#btn_a").prop("disabled",false);
+                                    $("#btn_b").prop("disabled",false);
+                                    $("#btn_c").prop("disabled",false);
+                                    $("#btn_d").prop("disabled",false);
                                     $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
                                     $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
                                     $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
