@@ -151,7 +151,7 @@
     
     <script>
         var session_id = '';
-        let e, x;
+        var e, x;
         async function submitForm(input_val) {
             // event.preventDefault();
             //outputDiv.innerHTML = 'Processing ...';
@@ -181,6 +181,7 @@
 
             if (response.ok) {
                 const data = await response.json();
+                
                 console.log(data);
                 // outputDiv.innerHTML = `
                 //     <h2>Submitted Values</h2>
@@ -219,12 +220,15 @@
                                 console.log(data.sections.GENERATE_JSON_TASK);
                                 data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK);
                                 console.log(data.sections.GENERATE_JSON_TASK);
-                                
+                                ////Aqui guardar en variables lo que necesito almacenar
                             }
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
                             if(data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
+                                x=data.sections.GENERATE_JSON_TASK.task_type;
+                                
 
-                                if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
+                                //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
+                                if(hasMulti(x)){
                                     $("#btn_a").show();
                                     $("#btn_b").show();
                                     $("#btn_c").show();
@@ -306,6 +310,17 @@
       function next(e){
          submitForm(e) 
       }
+        function hasMulti(string){
+            var lowerCaseString = string.toLowerCase();
+            if (lowerCaseString.includes("multi")){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+
+      
       function checkAnswer(e){
           //submitForm(e)
           $("#btn_a").prop("disabled",true);
@@ -316,7 +331,7 @@
       //function checkfeedback(e){  
     	switch(e) {
     	  case '1':
-    	        $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[0]);
+    	        $("#feedback").html(data.sections.GENERATE_JSON_TASK.task_options_feedback[0]);
     	        return e='1';
                 break;
     	  case '2':
