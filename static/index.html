@@ -308,17 +308,21 @@
       //function checkfeedback(e){  
     	switch(e) {
     	  case '1':
-    	   $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[0]);
-    	    break;
+    	        $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[0]);
+    	        return e='1';
+                break;
     	  case '2':
     	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[1]);
-    	    break;
+    	        return e='2';
+                break;
     	  case '3':
     	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[2]);
-    	    break;
+    	        return e='3';
+                break;
     	  case '4':
     	    $("#feedback").html(data.sections.GENERATE_JSON_TASK.task__options_feedback[3]);
-    	    break;	   
+    	        return e='4';
+                break;	   
     
     	}
     
