@@ -257,6 +257,7 @@
                                     $("#c_").hide();
                                     $("#d_").hide();
                                     $("#writing").show();
+                                    
                                 }
                                 }
                         }
@@ -309,6 +310,7 @@
         }
 
       function next(e){
+           $("#feedback").empty()
          submitForm(e) 
       }
         function hasMulti(string){
@@ -333,19 +335,23 @@
     	switch(e) {
     	  case '1':
     	        $("#feedback").html(feed[0]);
-    	        return e='1';
+                e='0';
+    	        return e;
                 break;
     	  case '2':
     	    $("#feedback").html(feed[1]);
-    	        return e='2';
+                e='1';
+    	        return e;
                 break;
     	  case '3':
     	    $("#feedback").html(feed[2]);
-    	        return e='3';
+                e='2';
+    	        return e;
                 break;
-    	  case '4':
+    	  case '3':
     	    $("#feedback").html(feed[3]);
-    	        return e='4';
+                e='4';
+    	        return e;
                 break;	   
     
     	}
