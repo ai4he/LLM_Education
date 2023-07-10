@@ -23,7 +23,7 @@ img{
   width: 10%;
   height: 30px;
   background-color: #04AA6D;
-  text-align: center; /* To center it horizontally (if you want) */
+  text-align: justify; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
 }
@@ -55,7 +55,7 @@ img{
 .element {
     color:#280c38;
     font-size: 40px;
-    text-align:center;
+    text-align:justify;
     /* width: 200px;
     height: 100px;*/
 
