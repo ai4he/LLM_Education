@@ -29,7 +29,7 @@
             <button>English</button>
         </div>
         <div class="element element--6">
-           // <button>French</button>
+         <!--   <button>French</button> -->
         </div>
         <div class="element element--7">
             Select your second language
@@ -41,7 +41,7 @@
             <button>English</button>
         </div>
         <div class="element element--10">
-           // <button>French</button>
+          <!-- // <button>French</button> -->
         </div>
 
         <div class="element element--11"></div>
@@ -157,6 +157,27 @@
     <script>
         var session_id = '';
         var e, x, data, res, feed;
+
+        var i = 0;
+        function move() {
+          if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 10;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = 0;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width + "%";
+              }
+            }
+          }
+        }
+        
         async function submitForm(input_val) {
             // event.preventDefault();
             //outputDiv.innerHTML = 'Processing ...';
