@@ -34,6 +34,9 @@ img{
     min-height: 600px;
     margin: 80px auto;
     border: 3px solid;
+    font-family: 'Handlee', cursive, Arial;
+    text-align: justify;
+    line-height: 2;
 
     display: grid;
     /*grid-template-columns: 20% 40% 40%;
