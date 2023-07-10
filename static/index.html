@@ -50,7 +50,7 @@
         <div class="element element--11"></div>
         <div class="element element--12">
             <div id="myProgress">
-                <div id="myBar">10%</div>
+                <div class="progress-bar" data-label="Preparing your lesson..." ></div>
             </div>
         </div>
         <div class="element element--13"> <button><a href="javascript:load_state2()">NEXT</a></button></div>
@@ -162,6 +162,15 @@
         var e, x, data, res, feed;
 
         var i = 0;
+
+        const progressBar = document.getElementByClassName('progress-bar')[0]
+        setInterval(()=> {
+        	const computedStyle=getComputedStyle(progressBar)
+        	const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0
+        	progressBar.style.setProperty('--width', width + .1)
+        }, 5)
+        
+        
         function move() {
           if (i == 0) {
             i = 1;
