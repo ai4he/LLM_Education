@@ -159,8 +159,12 @@
     
     <script>
         var session_id = '';
-        var e, x, data, res, feed;
-
+        var e, x, data, res, feed, exType;
+        var states = {
+            "initial" : true,
+            "lastQuestionType": "open",
+            "lastData" = null
+        }
         var i = 0;
 
         const progressBar = document.getElementsByClassName('progress-bar')[0]
@@ -220,6 +224,7 @@
             if (response.ok) {
                 const data = await response.json();
                 
+                
                 console.log(data);
                 // outputDiv.innerHTML = `
                 //     <h2>Submitted Values</h2>
@@ -258,7 +263,8 @@
                                 console.log(data.sections.GENERATE_JSON_TASK);
                                 data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK);
                                 console.log(data.sections.GENERATE_JSON_TASK);
-                                ////Aqui guardar en variables lo que necesito almacenar
+                                //***//Aqui guardar en variables lo que necesito almacenar
+                                states.lastData =data.sections.GENERATE_JSON_TASK;
                             }
                             $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
                             if(data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
@@ -285,7 +291,8 @@
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
-                                }else{
+                                    exType= 'multi';
+                                }else if(hasOpen(x)){
                                     $("#btn_a").hide();
                                     $("#btn_b").hide();
                                     $("#btn_c").hide();
@@ -295,7 +302,7 @@
                                     $("#c_").hide();
                                     $("#d_").hide();
                                     $("#writing").show();
-                                    
+                                    exType='open';
                                 }
                                 }
                         }
@@ -359,10 +366,17 @@
                 return false;
             }
         }
-        
+        function hasOpen(string){
+            var lowerCaseString = string.toLowerCase();
+            if (lowerCaseString.includes("open")){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
       
-      function checkAnswer(e){
+      function checkAnswer(e, exType){
           //submitForm(e)
           $("#btn_a").prop("disabled",true);
           $("#btn_b").prop("disabled",true);
