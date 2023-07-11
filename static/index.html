@@ -121,23 +121,23 @@
         <div class="element element--9"></div>
         <div class="element element--10">
             <div id="a_"> </div>
-            <button id="btn_a" onclick="checkAnswer('1', 'multi')">A</button>
+            <button id="btn_a" onclick="checkAnswer('1')">A</button>
             <input id="writing">
         </div>
         <div class="element element--11"> 
             <div id="b_"> </div>
-            <button id="btn_b" onclick="checkAnswer('2', 'multi')">B</button>
+            <button id="btn_b" onclick="checkAnswer('2')">B</button>
         </div>
         <div class="element element--12">
             <div id="c_"> </div>
-            <button id="btn_c" onclick="checkAnswer('3', 'multi')">C</button>
+            <button id="btn_c" onclick="checkAnswer('3')">C</button>
         </div>
         <div class="element element--13">
             <div id="d_"> </div>
-            <button id="btn_d" onclick="checkAnswer('4', 'multi')">D</button>
+            <button id="btn_d" onclick="checkAnswer('4')">D</button>
         </div>
         <div class="element element--14">
-            <button id= "check" onclick="next()" >Check Answer</button>
+            <button id= "check" onclick="checkwriting()" >Check Answer</button>
             <button id= "Next" onclick="next()" >NEXT</button>
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
@@ -290,6 +290,7 @@
                                     $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
+				    $("#check").hide();
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType= 'multi';
                                     console.log(exType);
@@ -303,6 +304,7 @@
                                     $("#c_").hide();
                                     $("#d_").hide();
                                     $("#writing").show();
+				    $("#check").show();
                                     exType='open';
                                     console.log(exType);
                                 }
@@ -378,7 +380,7 @@
          submitForm(e) 
       }
       
-     /* function checkAnswer(e, exType){ ///original
+      function checkAnswer(e){ ///original
           //submitForm(e)
           $("#btn_a").prop("disabled",true);
           $("#btn_b").prop("disabled",true);
@@ -411,9 +413,9 @@
     	}
     
                 
-     } */
+     }
 
-    function checkAnswer(e, exType){
+   /* function checkAnswer(e, exType){
 	console.log(exType);
         if(exType== "multi"){     
               $("#btn_a").prop("disabled",true);
@@ -449,9 +451,11 @@
           submitForm($("#writing").val());
         }
                     
-      } 
+      } */
 
-        
+    function checkwriting(){
+	submitForm($("#writing").val());    
+    }     
     function drawTask(data) {
 	x=data.sections.GENERATE_JSON_TASK.task_type;
     //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
