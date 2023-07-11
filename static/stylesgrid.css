@@ -12,7 +12,7 @@ body{
 .progress-bar{
 	position: relative;
 	width: 500px;
-	height: 3em;
+	height: 1.5em;
 	background-color: #111;
 	border-radius: 1.5em;
 	color: white;
@@ -168,6 +168,7 @@ img{
 }
 .element--15{
     grid-area: e15;
+    font-size: 18px;
 }
 .element--16{
     grid-area: e16;
