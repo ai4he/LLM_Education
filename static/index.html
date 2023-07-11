@@ -292,6 +292,7 @@
                                     $("#writing").hide();
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType= 'multi';
+                                    console.log(exType);
                                 }else if(hasOpen(x)){
                                     $("#btn_a").hide();
                                     $("#btn_b").hide();
@@ -303,6 +304,7 @@
                                     $("#d_").hide();
                                     $("#writing").show();
                                     exType='open';
+                                    console.log(exType);
                                 }
                                 }
                         }
@@ -354,10 +356,7 @@
             submitForm(null);
         }
 
-      function next(e){
-           $("#feedback").empty()
-         submitForm(e) 
-      }
+
         function hasMulti(string){
             var lowerCaseString = string.toLowerCase();
             if (lowerCaseString.includes("multi")){
@@ -374,9 +373,12 @@
                 return false;
             }
         }
-
+      function next(e){
+           $("#feedback").empty()
+         submitForm(e) 
+      }
       
-      function checkAnswer(e, exType){
+     /* function checkAnswer(e, exType){ ///original
           //submitForm(e)
           $("#btn_a").prop("disabled",true);
           $("#btn_b").prop("disabled",true);
@@ -409,8 +411,81 @@
     	}
     
                 
-     } 
+     } */
 
+    function checkAnswer(e, exType){
+        if(exType== "multi"){     
+              $("#btn_a").prop("disabled",true);
+              $("#btn_b").prop("disabled",true);
+              $("#btn_c").prop("disabled",true);
+              $("#btn_d").prop("disabled",true);
+          //}
+          //function checkfeedback(e){  
+        	switch(e) {
+        	  case '1':
+        	        $("#feedback").html(feed[0]);
+                    e='0';
+        	        return e;
+                    break;
+        	  case '2':
+        	    $("#feedback").html(feed[1]);
+                    e='1';
+        	        return e;
+                    break;
+        	  case '3':
+        	    $("#feedback").html(feed[2]);
+                    e='2';
+        	        return e;
+                    break;
+        	  case '3':
+        	    $("#feedback").html(feed[3]);
+                    e='4';
+        	        return e;
+                    break;	   
+        
+        	}
+        }else if(exType=="open"){
+          submitForm($("#writing").val());
+        }
+                    
+      } 
+
+        
+    function drawTask(data) {
+	x=data.sections.GENERATE_JSON_TASK.task_type;
+    //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
+    if(hasMulti(x)){
+        $("#btn_a").show();
+        $("#btn_b").show();
+        $("#btn_c").show();
+        $("#btn_d").show();
+        $("#a_").show();
+        $("#b_").show();
+        $("#c_").show();
+        $("#d_").show();
+        $("#btn_a").prop("disabled",false);
+        $("#btn_b").prop("disabled",false);
+        $("#btn_c").prop("disabled",false);
+        $("#btn_d").prop("disabled",false);
+        $("#a_").html(data.sections.GENERATE_JSON_TASK.task_options[0]);
+        $("#b_").html(data.sections.GENERATE_JSON_TASK.task_options[1]);
+        $("#c_").html(data.sections.GENERATE_JSON_TASK.task_options[2]);
+        $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);
+        $("#writing").hide();
+        feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
+    }else{
+        $("#btn_a").hide();
+        $("#btn_b").hide();
+        $("#btn_c").hide();
+        $("#btn_d").hide();
+        $("#a_").hide();
+        $("#b_").hide();
+        $("#c_").hide();
+        $("#d_").hide();
+        $("#writing").show();
+        }
+    }    
+        
         
         init();
     </script>
