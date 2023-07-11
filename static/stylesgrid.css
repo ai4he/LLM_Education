@@ -16,6 +16,7 @@ body{
 	background-color: #111;
 	border-radius: 1.5em;
 	color: white;
+	font-size: 14px;
 
 }
 
@@ -158,6 +159,7 @@ img{
 
 .element--12{
     grid-area: e12;
+	font-size: 14px;
 }
 
 .element--13{
