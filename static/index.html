@@ -261,7 +261,7 @@
                                
                             if(!data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
                                 console.log(data.sections.GENERATE_JSON_TASK);
-                                data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK);
+                                data.sections.GENERATE_JSON_TASK = JSON.parse("{"+data.sections.GENERATE_JSON_TASK + "}");
                                 console.log(data.sections.GENERATE_JSON_TASK);
                                 //***//Aqui guardar en variables lo que necesito almacenar
                                 states.lastData =data.sections.GENERATE_JSON_TASK;
