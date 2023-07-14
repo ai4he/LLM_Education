@@ -462,7 +462,12 @@
                 return false;
             }
         }
-      function next(e, extype){
+
+      function next(e){
+           $("#feedback").empty()
+         submitForm(e) 
+      }
+      /*function next(e, extype){
           $("#feedback").empty();
 	  if(extype=='multi'){
 		  console.log('ifNextmulti');
@@ -486,7 +491,7 @@
 		   
 	  }
          
-      }
+      }*/
       
       function checkAnswer(e){ ///original
           //submitForm(e)
