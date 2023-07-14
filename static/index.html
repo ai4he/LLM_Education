@@ -189,6 +189,7 @@
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
             <button id= "Next" onclick="next()" >NEXT</button>
+	    <button id= "Feedback3" onclick="draw()" >Feedback</button> 	
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
                 <input type="text" name="session_id" id="session_id">
@@ -378,7 +379,14 @@
                                 }
                                 }
                         }
-                    }
+
+                        if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
+				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
+                                	drawSurvey(data);
+				}
+                        }
+			    
+                    }// close the if (data.hasOwnProperty('sections')) before this must be all the sections of the session
                 }
             } else {
                 outputDiv.innerHTML = '<p>An error occurred while submitting the form.</p>';
@@ -560,7 +568,34 @@
         $("#writing").show();
         }
     }    
-        
+
+    function drawSurvey(data){
+	$("#btn_a").hide();
+        $("#btn_b").hide();
+        $("#btn_c").hide();
+        $("#btn_d").hide();
+        $("#a_").hide();
+        $("#b_").hide();
+        $("#c_").hide();
+        $("#d_").hide();
+        $("#writing").show();
+	$("#Feedback3").show();
+	$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);
+	$("#exercise").html(data.sections.DECIDE_NEXT_STEP.FINAL_SURVEY_INTRO);
+    }	    
+    function drawFeedback(data) {
+	$("#btn_a").hide();
+        $("#btn_b").hide();
+        $("#btn_c").hide();
+        $("#btn_d").hide();
+        $("#a_").hide();
+        $("#b_").hide();
+        $("#c_").hide();
+        $("#d_").hide();
+        $("#writing").show();    
+    }
+	    
+	    
         
         init();
     </script>
