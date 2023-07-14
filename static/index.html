@@ -138,7 +138,7 @@
         </div>
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
-            <button id= "Next" onclick="next()" >NEXT</button>
+            <button id= "Next" onclick="next(extype)" >NEXT</button>
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
                 <input type="text" name="session_id" id="session_id">
@@ -188,7 +188,7 @@
         </div>
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
-            <button id= "Next" onclick="next()" >NEXT</button>
+            <button id= "Next" onclick="next(extype)" >NEXT</button>
 	    <button id= "Feedback3" onclick="draw()" >Feedback</button> 	
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
@@ -391,7 +391,7 @@
 				console.log(data);
 				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
                                 	drawSurvey(data);
-					xtype='survey';
+					extype='survey';
 				}
                         }
 			    
@@ -460,20 +460,22 @@
                 return false;
             }
         }
-      function next(e){
+      function next(extype){
           $("#feedback").empty();
-	  if(xtype=='multi'){
+	  if(extype=='multi'){
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
+	  submitForm(e);
 	  }
-	  if(xtype=='open'){
-		$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);	  
+	  if(extype=='open'){
+		$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);	 
+		drawTask(data);
 	  }
 	      
-	  if (xtype=='survey'){
-		  $("#exercise").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);
+	  if (extype=='survey'){
+		$("#exercise").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);
 	  	$("#waiting3").show();
 		   
 	  }
@@ -561,6 +563,7 @@
     }     
     function drawTask(data) {
 	x=data.sections.GENERATE_JSON_TASK.task_type;
+	$("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
     //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
     if(hasMulti(x)){
         $("#btn_a").show();
