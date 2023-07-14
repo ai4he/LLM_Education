@@ -368,7 +368,7 @@
 				    $("#openfeed").hide();
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
-                                    exType= 'multi';
+                                    return exType= 'multi';
                                     console.log(exType);
                                 }else if(hasOpen(x)){
                                     $("#btn_a").hide();
@@ -382,7 +382,7 @@
                                     $("#writing").show();
 				    $("#check").show();
 				    $("#waiting3").show();
-                                    exType='open';
+                                    return exType='open';
                                     console.log(exType);
                                 }
                                 }
@@ -393,7 +393,7 @@
 				console.log(data);
 				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
                                 	drawSurvey(data);
-					extype='survey';
+					return extype='survey';
 				}
                         }
 			    
