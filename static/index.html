@@ -364,7 +364,7 @@
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
 				    $("#check").hide();
-				    $("#waiting3").hide(); 
+				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType= 'multi';
                                     console.log(exType);
@@ -379,7 +379,7 @@
                                     $("#d_").hide();
                                     $("#writing").show();
 				    $("#check").show();
-				    $("#waiting3").hide();
+				    $("#waiting3").show();
                                     exType='open';
                                     console.log(exType);
                                 }
@@ -540,8 +540,9 @@
       } */
 
     function checkwriting(){
-	submitForm($("#writing").val());  
 	$("#waiting3").show();
+	submitForm($("#writing").val());  
+	
 	
     }     
     function drawTask(data) {
