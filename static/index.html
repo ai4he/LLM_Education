@@ -463,19 +463,20 @@
             }
         }
 
-      function next(e){
+     /* function next(e){
            $("#feedback").empty()
          submitForm(e) 
-      }
-      /*function next(e, extype){
+      }*/
+      function next(e, extype){
           $("#feedback").empty();
+	  console.log(extype);
 	  if(extype=='multi'){
 		  console.log('ifNextmulti');
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
-	  submitForm(e);
+	  submitForm(e)
 	  }
 	  if(extype=='open'){
 		  console.log('ifNextOpen');
@@ -491,7 +492,7 @@
 		   
 	  }
          
-      }*/
+      }
       
       function checkAnswer(e){ ///original
           //submitForm(e)
