@@ -465,6 +465,7 @@
       function next(extype){
           $("#feedback").empty();
 	  if(extype=='multi'){
+		  console.log('ifNextmulti');
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
@@ -472,13 +473,16 @@
 	  submitForm(e);
 	  }
 	  if(extype=='open'){
+		  console.log('ifNextOpen');
 		$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);	 
 		drawTask(data);
 	  }
 	      
 	  if (extype=='survey'){
+		  console.log('ifNextSurvey');
 		$("#exercise").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);
 	  	$("#waiting3").show();
+		  submitForm($("#writing").val()); 
 		   
 	  }
          
