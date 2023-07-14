@@ -387,6 +387,8 @@
                         }
 
                         if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
+				console.log(Decide_next_step);
+				console.log(data);
 				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
                                 	drawSurvey(data);
 				}
@@ -463,6 +465,9 @@
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
+	  if (){
+		  
+	  }
          submitForm(e) 
       }
       
@@ -603,7 +608,8 @@
         $("#b_").hide();
         $("#c_").hide();
         $("#d_").hide();
-        $("#writing").show();    
+        $("#writing").show();  
+	$("#waiting3").show();
     }
 	    
 	    
