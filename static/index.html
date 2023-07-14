@@ -461,14 +461,22 @@
         }
       function next(e){
           $("#feedback").empty();
+	  if(xtype=='multi'){
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
-	  if (){
-		  
 	  }
-         submitForm(e) 
+	  if(xtype=='open'){
+		$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);	  
+	  }
+	      
+	  if (xtype=='survey'){
+		  $("#exercise").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);
+	  	$("#waiting3").show();
+		   
+	  }
+         
       }
       
       function checkAnswer(e){ ///original
