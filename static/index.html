@@ -458,7 +458,11 @@
             }
         }
       function next(e){
-           $("#feedback").empty()
+          $("#feedback").empty();
+	  $("#btn_a").prop("disabled",false);
+          $("#btn_b").prop("disabled",false);
+          $("#btn_c").prop("disabled",false);
+          $("#btn_d").prop("disabled",false);
          submitForm(e) 
       }
       
