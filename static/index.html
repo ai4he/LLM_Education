@@ -76,7 +76,7 @@
 
     <section class="container" id="state2">
         <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
-        <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Lesson</a></div>
         <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
         <div class="element element--4"></div>
         <div class="element element--5"></div>
@@ -109,11 +109,11 @@
 
     <section class="container" id="state3">
         <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
-        <div class="element element--2"><a href="javascript:load_state2()">Speaking</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Lesson</a></div>
         <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
         <div class="element element--4"></div>
 
-        <div class="element element--5">Let's practice with multiple choice</div>
+        <div class="element element--5">Let's practice </div>
         <div class="element element--7"></div>
         <div class="element element--8">
             <img src="/static/img/undraw_Books_re_8gea.png" alt="">
@@ -148,7 +148,11 @@
         </div>
         <div class="element element--15" id="feedback"></div>
         <div class="element element--16" id="exercise"></div>
-        <div class="element element--17"></div>
+        <div class="element element--17">
+	    <div id="myProgress">
+                <div id="waiting3" class="progress-bar3" data-label="Preparing your lesson..." ></div>
+            </div>
+	</div>
         <div class="element element--18"></div>
         <div class="element element--19"></div>
     </section>
@@ -353,6 +357,7 @@
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
 				    $("#check").hide();
+				    $("#waiting3").hide(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType= 'multi';
                                     console.log(exType);
@@ -367,6 +372,7 @@
                                     $("#d_").hide();
                                     $("#writing").show();
 				    $("#check").show();
+				    $("#waiting3").hide();
                                     exType='open';
                                     console.log(exType);
                                 }
@@ -516,7 +522,9 @@
       } */
 
     function checkwriting(){
-	submitForm($("#writing").val());    
+	submitForm($("#writing").val());  
+	$("#waiting3").show();
+	
     }     
     function drawTask(data) {
 	x=data.sections.GENERATE_JSON_TASK.task_type;
