@@ -318,7 +318,8 @@
                             $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content);
                         }    
                         if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
-                            $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
+                            //$("#outputScenario").html(data.sections.GENERATE_SCENARIO);
+			    $("#outputScenario").html(data.sections.GENERATE_LESSON);	
                         }
                         /*if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                           
