@@ -124,6 +124,7 @@ img{
 
 .element--13{
     grid-area: e13;
+    font-size: 15px;
     background-color: #fff;
     padding-left: 2px;
 }
