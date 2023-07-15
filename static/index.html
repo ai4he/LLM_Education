@@ -315,17 +315,18 @@
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
                             $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
                         }
-			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-                            $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[0]);
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[1]);
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[2]);
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[3]);
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[4]);
-                        }    
-                        if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
+			if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
                             $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
 			   	
                         }
+			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
+                            $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content);
+			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[1]);
+			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[2]);
+			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[3]);
+			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[4]);
+                        }    
+                 
                         /*if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                           
                                     $("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
