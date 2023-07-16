@@ -428,7 +428,7 @@
 				$("#question").html(data.sections.FINAL_SURVEY_QUESTION ); 
 			 }
 			 if (data.sections.DECIDE_NEXT_SURVEY_STEP.hasOwnProperty('next_step')) {
-				if(data.sections.DECIDE_NEXT_SURVEY_STEP.next_step=='END_SESSION){
+				if(data.sections.DECIDE_NEXT_SURVEY_STEP.next_step=='END_SESSION'){
 				 	$("#gpt").html(data.sections.DECIDE_NEXT_SURVEY_STEP.decision_feedback);
 				 	$("#writingSu").hide();
 			 	}
