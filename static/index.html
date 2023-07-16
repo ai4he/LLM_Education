@@ -135,6 +135,7 @@
         <div class="element element--13">
             <div id="d_"> </div>
             <button id="btn_d" onclick="checkAnswer('4')">D</button>
+		<button id= "Survey" ><a href="javascript:load_state4()">Survey</a></button>
         </div>
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
@@ -172,7 +173,7 @@
         </div>
         <div class="element element--9"></div>
         <div class="element element--10">
-		 <input id="writing">
+		 <input id="writingSurvey">
         </div>
         <div class="element element--11"> 
           
@@ -194,8 +195,8 @@
                 <input type="submit" value="Submit">
             </form>  -->
         </div>
-        <div class="element element--15" id="feedback"></div>
-        <div class="element element--16" id="exercise"></div>
+        <div class="element element--15" id="gpt"></div>
+        <div class="element element--16" id="question"></div>
         <div class="element element--17"></div>
         <div class="element element--18"></div>
         <div class="element element--19"></div>
@@ -371,6 +372,7 @@
                                     $("#writing").hide();
 				    $("#check").hide(); 
 				    $("#openfeed").hide();
+					 $("#survey").hide();
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     return exType= 'multi';
@@ -386,6 +388,7 @@
                                     $("#d_").hide();
                                     $("#writing").show();
 				    $("#check").show();
+				    $("#survey").hide();
 				    $("#waiting3").show();
                                     return exType='open';
                                     console.log(exType);
@@ -402,7 +405,26 @@
 					return extype='survey';
 				}
                         }
-			    
+			 if (data.sections.hasOwnProperty('FINAL_SURVEY_INTRO')) {
+                                    $("#btn_a").hide();
+                                    $("#btn_b").hide();
+                                    $("#btn_c").hide();
+                                    $("#btn_d").hide();
+                                    $("#a_").hide();
+                                    $("#b_").hide();
+                                    $("#c_").hide();
+                                    $("#d_").hide();
+                                    $("#writing").hide();
+				    $("#check").hide();
+				    $("#waiting3").hide();
+				    $("#survey").show();
+				    $("#exercise").html(data.sections.FINAL_SURVEY_INTRO);
+                                    return exType='Survey';
+                                    console.log(exType);	 
+			 }
+			 if (data.sections.hasOwnProperty('FINAL_SURVEY_QUESTION')) {
+				$("#question").html(data.sections.FINAL_SURVEY_QUESTION ); 
+			 }			    
                     }// close the if (data.hasOwnProperty('sections')) before this must be all the sections of the session
                 }
             } else {
@@ -472,6 +494,11 @@
       function next(e){
            $("#feedback").empty()
          submitForm(e) 
+      }
+      function survey(e){
+	$("#a_").html(data.sections.     
+        $("#feedback").empty()
+          
       }
      /* function next(e, extype){
           $("#feedback").empty();
