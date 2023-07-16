@@ -29,19 +29,19 @@
             <button><a href="javascript:load_state4()">Survey</a></button>
         </div>
         <div class="element element--5">
-            <button>English</button>
+            
         </div>
         <div class="element element--6">
          <!--   <button>French</button> -->
         </div>
         <div class="element element--7">
-            Select your second language
+            
         </div>
         <div class="element element--8">
-            <button>Spanish</button>
+            
         </div>
         <div class="element element--9">
-            <button>English</button>
+            
         </div>
         <div class="element element--10">
           <!-- // <button>French</button> -->
@@ -58,10 +58,10 @@
         <div class="element element--15"></div>
         <div class="element element--16">
             <p>
-                The system will help you to learn a language. <br> <br>
+                The system will help you to learn writing skills. <br> <br>
             
-                First choose the level <br>
-                Depending of the level you choose the instructions will be in your first language (beginner) or in the language you are studying (intermediate - advanced).
+               Please wait <be>
+		The system is connecting with an IA and your lesson is being prepared on real-time.
                 <br>
                 Next set the goal.<br>
                 You will go to one of the places showed and practices the vocabulary that you might have in that place.
@@ -310,11 +310,11 @@
 
 
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-				data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON));
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.0.tutoring_content); 	
+			    data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
+			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
-				console.log(data.sections.GENERATE_JSON_LESSON.0.tutoring_content);
+				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
                         }  
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
                             $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
