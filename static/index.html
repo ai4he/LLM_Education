@@ -310,15 +310,11 @@
 
 
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-				data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
+				data.sections.GENERATE_JSON_LESSON = JSON.stringify(data.sections.GENERATE_JSON_LESSON);
 			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
-			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[1]);
-			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[2]);
-			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[3]);
-			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[4]);
                         }  
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
                             $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
