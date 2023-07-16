@@ -135,7 +135,7 @@
         <div class="element element--13">
             <div id="d_"> </div>
             <button id="btn_d" onclick="checkAnswer('4')">D</button>
-		<button id= "Survey" ><a href="javascript:load_state4()">Survey</a></button>
+		<button id= "survey" ><a href="javascript:load_state4()">Survey</a></button>
         </div>
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
@@ -173,7 +173,7 @@
         </div>
         <div class="element element--9"></div>
         <div class="element element--10">
-		 <input id="writingSurvey">
+		 <input id="writingSu">
         </div>
         <div class="element element--11"> 
           
@@ -186,7 +186,7 @@
         </div>
         <div class="element element--14">
             
-            <button id= "Next" onclick="next(extype)" >NEXT</button>
+            <button id= "Nextsurvey" onclick="survey()" >NEXT</button>
 	   	
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
@@ -416,9 +416,11 @@
                                     $("#d_").hide();
                                     $("#writing").hide();
 				    $("#check").hide();
+				    $("#Next").hide();
 				    $("#waiting3").hide();
 				    $("#survey").show();
 				    $("#exercise").html(data.sections.FINAL_SURVEY_INTRO);
+				    $("#question").html(data.sections.FINAL_SURVEY_QUESTION);
                                     return exType='Survey';
                                     console.log(exType);	 
 			 }
@@ -497,7 +499,8 @@
       }
       function survey(e){
 	//$("#a_").html(data.sections.     
-        $("#feedback").empty();
+        submitForm($("#writingSu").val());
+	      
           
       }
      /* function next(e, extype){
