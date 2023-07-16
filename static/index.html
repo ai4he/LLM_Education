@@ -315,7 +315,7 @@
 			   	
                         }
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-                            $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content);
+                            $("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[1]);
 			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[2]);
 			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[3]);
@@ -637,6 +637,13 @@
         $("#d_").hide();
         $("#writing").show();  
 	$("#waiting3").show();
+    }
+    function generateListItems(arg){
+        let items = "";
+        for (let i=0; i<arg.length; i++){
+            items += `<li>${arg[i]}</li>`;
+        }
+          return items;
     }
 	    
 	    
