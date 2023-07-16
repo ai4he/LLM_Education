@@ -310,8 +310,9 @@
 
 
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
-                            //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
+				data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
+			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
+                            $("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
 			    //$("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content[1]);
@@ -397,6 +398,7 @@
                         }
 
                         if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
+				data.sections.DECIDE_NEXT_STEP = fixJSON(data.sections.DECIDE_NEXT_STEP);
 				console.log(Decide_next_step);
 				console.log(data);
 				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
