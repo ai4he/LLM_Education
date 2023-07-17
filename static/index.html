@@ -252,17 +252,27 @@
         }
 
         function fixJSON(textJSON) {
-	    try {
-		return JSON.parse("{"+textJSON);
-	    } catch {
-		try {
-		   return JSON.parse("{" + textJSON + "}");			
-		} catch {
-		  return {};	
-		}
+	    if (typeof textJSON === 'string' || textJSON instanceof String) {
+		    try {
+			return JSON.parse("{"+textJSON);
+		    } catch {
+			try {
+			   return JSON.parse("{" + textJSON + "}");			
+			} catch {
+			  return {};	
+			}
+		    }
+		    return {};		    
 	    }
-	    return {};
+	    return textJSON;
         }
+
+	function getObject(jsonObject) {
+		if (Array.isArray(jsonObject)) {
+			return jsonObject[0];
+		}
+		return jsonObject;
+	}
         
         async function submitForm(input_val) {
             // event.preventDefault();
@@ -313,7 +323,9 @@
 
 
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
-			    data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
+			    data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
+			    data.sections.GENERATE_JSON_LESSON = getObject(data.sections.GENERATE_JSON_LESSON);
+			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
 			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
