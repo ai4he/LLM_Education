@@ -325,6 +325,8 @@
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
 			    data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
 			    data.sections.GENERATE_JSON_LESSON = getObject(data.sections.GENERATE_JSON_LESSON);
+			    console.log('GENERATE_JSON_LESSON');
+			    console.log(data.sections.GENERATE_JSON_LESSON);
 			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
 			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
@@ -356,6 +358,7 @@
                             if(!data.sections.GENERATE_JSON_TASK.hasOwnProperty('task_type')){
                                 console.log(data.sections.GENERATE_JSON_TASK);
 				data.sections.GENERATE_JSON_TASK = fixJSON(data.sections.GENERATE_JSON_TASK);
+				console.log('GENERATE_JSON_TASK');
                                 console.log(data.sections.GENERATE_JSON_TASK);
                                 //***//Aqui guardar en variables lo que necesito almacenar
                                 states.lastData =data.sections.GENERATE_JSON_TASK;
@@ -412,6 +415,8 @@
 
             		if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
 				data.sections.DECIDE_NEXT_STEP = fixJSON(data.sections.DECIDE_NEXT_STEP);
+				console.log('DECIDE_NEXT_STEP');
+			    	console.log(data.sections.DECIDE_NEXT_STEP);
 				// console.log(DECIDE_NEXT_STEP);
 				console.log(data);
 				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
