@@ -452,6 +452,10 @@
 			 }
 			 if (data.sections.hasOwnProperty('DECIDE_NEXT_SURVEY_STEP')) {
 				data.sections.DECIDE_NEXT_SURVEY_STEP = fixJSON(data.sections.DECIDE_NEXT_SURVEY_STEP);
+				 if (data.sections.DECIDE_NEXT_SURVEY_STEP.hasOwnProperty('decision_feedback')) {
+					$("#gpt").html(data.sections.DECIDE_NEXT_SURVEY_STEP.decision_feedback);
+					$("#writingSu").empty();
+				 }
 				if (data.sections.DECIDE_NEXT_SURVEY_STEP.hasOwnProperty('next_step')) {
 					if(data.sections.DECIDE_NEXT_SURVEY_STEP.next_step=='END_SESSION'){
 					 	$("#gpt").html(data.sections.DECIDE_NEXT_SURVEY_STEP.decision_feedback);
@@ -528,6 +532,10 @@
 
       function next(e){
            $("#feedback").empty()
+	  $("#btn_a").prop("disabled",false);
+          $("#btn_b").prop("disabled",false);
+          $("#btn_c").prop("disabled",false);
+          $("#btn_d").prop("disabled",false);
          submitForm(e) 
       }
       function survey(e){
@@ -564,31 +572,29 @@
       }*/
       
       function checkAnswer(e){ ///original
-          //submitForm(e)
-          $("#btn_a").prop("disabled",true);
-          $("#btn_b").prop("disabled",true);
-          $("#btn_c").prop("disabled",true);
-          $("#btn_d").prop("disabled",true);
-      //}
-      //function checkfeedback(e){  
+ 
     	switch(e) {
     	  case '1':
     	        $("#feedback").html(feed[0]);
+		$("#btn_a").prop("disabled",true);
                 e='0';
     	        return e;
                 break;
     	  case '2':
-    	    $("#feedback").html(feed[1]);
+    	        $("#feedback").html(feed[1]);
+		$("#btn_b").prop("disabled",true);
                 e='1';
     	        return e;
                 break;
     	  case '3':
-    	    $("#feedback").html(feed[2]);
+    	        $("#feedback").html(feed[2]);
+		$("#btn_c").prop("disabled",true);
                 e='2';
     	        return e;
                 break;
     	  case '3':
-    	    $("#feedback").html(feed[3]);
+    	        $("#feedback").html(feed[3]);
+		$("#btn_d").prop("disabled",true);
                 e='4';
     	        return e;
                 break;	   
