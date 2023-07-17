@@ -142,7 +142,7 @@
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
             <button id= "Next" onclick="next()" >NEXT</button>
-	    <button id= "openfeed" onclick="drawFeedback()" >Feedback</button>
+	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
                 <input type="text" name="session_id" id="session_id">
@@ -646,6 +646,7 @@
     function checkwriting(){
 	$("#waiting3").show();
 	$("#openfeed").show();    
+	$("#Next").hide(); 
 	submitForm($("#writing").val());  
 	
 	
@@ -690,6 +691,8 @@
 	$("#check").show();
 	$("#survey").hide();
 	$("#waiting3").show();
+	$("#Next").hide();
+	$("#openfeed").hide();
         }
     }    
 
@@ -720,6 +723,21 @@
 	$("#waiting3").show();
 	$("#feedback").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
     }
+    function drawFeedopen(data) {
+	$("#btn_a").hide();
+        $("#btn_b").hide();
+        $("#btn_c").hide();
+        $("#btn_d").hide();
+        $("#a_").hide();
+        $("#b_").hide();
+        $("#c_").hide();
+        $("#d_").hide();
+        $("#writing").show();  
+	$("#Next").show();
+	$("#check").hide();
+	$("#feedback").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
+    }
+	    
     function generateListItems(arg){
         let items = "";
         for (let i=0; i<arg.length; i++){
