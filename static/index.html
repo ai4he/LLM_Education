@@ -410,15 +410,19 @@
                                 }
                         }
 
-                      /*  if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
+            		if (data.sections.hasOwnProperty('DECIDE_NEXT_STEP')) {
 				data.sections.DECIDE_NEXT_STEP = fixJSON(data.sections.DECIDE_NEXT_STEP);
-				console.log(DECIDE_NEXT_STEP);
+				// console.log(DECIDE_NEXT_STEP);
 				console.log(data);
-				if(data.sections.DECIDE_NEXT_STEP.hasOwnProperty('GENERATE_JSON_CERTIFICATION')){
-                                	drawSurvey(data);
-					return extype='survey';
+				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
+					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_CERTIFICATION') {
+	                                	drawSurvey(data);
+						extype = 'survey';
+						// return extype='survey';
+					}
 				}
-                        }*/
+                         }
+			    
 			 if (data.sections.hasOwnProperty('FINAL_SURVEY_INTRO')) {
                                     $("#btn_a").hide();
                                     $("#btn_b").hide();
@@ -441,11 +445,14 @@
 			 if (data.sections.hasOwnProperty('FINAL_SURVEY_QUESTION')) {
 				$("#question").html(data.sections.FINAL_SURVEY_QUESTION ); 
 			 }
-			 if (data.sections.DECIDE_NEXT_SURVEY_STEP.hasOwnProperty('next_step')) {
-				if(data.sections.DECIDE_NEXT_SURVEY_STEP.next_step=='END_SESSION'){
-				 	$("#gpt").html(data.sections.DECIDE_NEXT_SURVEY_STEP.decision_feedback);
-				 	$("#writingSu").hide();
-			 	}
+			 if (data.sections.hasOwnProperty('DECIDE_NEXT_SURVEY_STEP')) {
+				data.sections.DECIDE_NEXT_SURVEY_STEP = fixJSON(data.sections.DECIDE_NEXT_SURVEY_STEP);
+				if (data.sections.DECIDE_NEXT_SURVEY_STEP.hasOwnProperty('next_step')) {
+					if(data.sections.DECIDE_NEXT_SURVEY_STEP.next_step=='END_SESSION'){
+					 	$("#gpt").html(data.sections.DECIDE_NEXT_SURVEY_STEP.decision_feedback);
+					 	$("#writingSu").hide();
+				 	}
+				 }
 			 }
 			    
                     }// close the if (data.hasOwnProperty('sections')) before this must be all the sections of the session
