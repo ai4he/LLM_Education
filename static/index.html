@@ -392,7 +392,7 @@
 					 $("#survey").hide();
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
-                                    return exType= 'multi';
+                                    exType = 'multi';
                                     console.log(exType);
                                 }else if(hasOpen(x)){
                                     $("#btn_a").hide();
@@ -407,7 +407,7 @@
 				    $("#check").show();
 				    $("#survey").hide();
 				    $("#waiting3").show();
-                                    return exType='open';
+                                    exType ='open';
                                     console.log(exType);
                                 }
                                 }
@@ -444,7 +444,7 @@
 				    $("#survey").show();
 				    $("#exercise").html(data.sections.FINAL_SURVEY_INTRO);
 				    $("#question").html(data.sections.FINAL_SURVEY_QUESTION);
-                                    return exType='Survey';
+                                    exType ='Survey';
                                     console.log(exType);	 
 			 }
 			 if (data.sections.hasOwnProperty('FINAL_SURVEY_QUESTION')) {
