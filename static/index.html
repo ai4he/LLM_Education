@@ -597,7 +597,7 @@
     	  case '4':
     	        $("#feedback").html(feed[3]);
 		$("#btn_d").prop("disabled",true);
-                e='4';
+                e='3';
     	        return e;
                 break;	   
     
@@ -736,7 +736,7 @@
         $("#writing").show();  
 	$("#Next").show();
 	$("#check").hide();
-	$("#feedback").html(data.DECIDE_NEXT_STEP.answer_feedback);
+	$("#feedback").html(data.answer_feedback);
     }
 	    
     function generateListItems(arg){
