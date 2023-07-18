@@ -424,6 +424,11 @@
 				// console.log('data after decidenext steps');
 				console.log(data);
 				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
+					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_TASK') {
+	                                	drawTask(data);
+						extype = 'survey';
+						// return extype='survey';
+					}
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_CERTIFICATION') {
 	                                	drawSurvey(data);
 						extype = 'survey';
@@ -745,9 +750,9 @@
         $("#c_").hide();
         $("#d_").hide();
         $("#writing").show();  
-	$("#Next").show();
+	$("#nextOpen").show();
 	$("#check").hide();
-	$("#feedback").html(answer_feedback);
+	$("#feedback").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
     }
 	    
     function generateListItems(arg){
