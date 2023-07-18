@@ -2,6 +2,12 @@ body{
     background-color:bisque;
     font-family: 'Arial';
 }
+#loader{
+	display: none;
+}
+#loader.show{
+	display: block;
+}
 
 h1{
     font-size: 50px;
