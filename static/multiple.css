@@ -4,7 +4,12 @@ body{
     text-align: justify;
     line-height: 2;
 }
-
+#loader{
+	display: none;
+}
+#loader.show{
+	display: block;
+}
 h1{
     font-size: 50px;
 }
