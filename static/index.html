@@ -424,6 +424,10 @@
 				// console.log('data after decidenext steps');
 				console.log(data);
 				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
+					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_LESSON') {
+	                                	$("#feedback").html('A new Lesson has been generated. Please click in the link Lesson, review it and then comeback to do the exercise');
+						
+					}
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_TASK') {
 	                                	drawTask(data);
 						extype = 'survey';
