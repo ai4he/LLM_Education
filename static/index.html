@@ -173,6 +173,11 @@
         <div class="element element--7"></div>
         <div class="element element--8">
             <img src="/static/img/w5.png" alt="">
+	    <div id="loader">
+	    	<div class= "progress">
+			<div class= "indeterminate" ></div>
+		</div>
+	    </div>
         </div>
         <div class="element element--9"></div>
         <div class="element element--10">
@@ -288,12 +293,20 @@
             btn3.addEventListener('click',checkAnswer);
             var btn4 = document.getElementById('d_');
             btn4.addEventListener('click',checkAnswer);
+	    const loaderDiv= document.getElemetbyId('loader');
+	    function showloader(){
+		    loaderDiv.classList.add('show');
+	    }
+	    function hideLoader(){
+		    loaderDiv.classLsit.remove('show');
+	    }
             let params = {
                 session_id: session_id
             }
             if (input_val) {
                 params['input_val'] = input_val;
             }
+		showLoader();
             const response = await fetch('/', {
                 method: 'POST',
                 headers: {
@@ -304,7 +317,7 @@
 
             if (response.ok) {
                 data = await response.json();
-                
+                hideLoader();
                 
                 console.log(data);
                 // outputDiv.innerHTML = `
