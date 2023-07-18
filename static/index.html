@@ -142,6 +142,7 @@
         <div class="element element--14">
             <button id= "check" onclick="checkwriting()" >Check Answer</button>
             <button id= "Next" onclick="next()" >NEXT</button>
+	    <button id= "nextOpen" onclick="nextOpen()" >NEXT</button>
 	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
 <!--             <form onsubmit="submitForm(event)">
                 <label for="session_id">Session ID:</label>
@@ -388,8 +389,9 @@
                                     $("#d_").html(data.sections.GENERATE_JSON_TASK.task_options[3]);  
                                     $("#writing").hide();
 				    $("#check").hide(); 
+				    $("#nextOpen").hide(); 
 				    $("#openfeed").hide();
-					 $("#survey").hide();
+				    $("#survey").hide();
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType = 'multi';
@@ -408,6 +410,7 @@
 				    $("#survey").hide();
 				    $("#waiting3").show();
 				    $("#Next").hide();
+				    $("#nextOpen").hide(); 
                                     exType ='open';
                                     console.log(exType);
                                 }
@@ -539,6 +542,14 @@
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
          submitForm(e) 
+      }
+      function nextOpen(e){
+	  $("#feedback").empty()
+	  $("#btn_a").prop("disabled",false);
+          $("#btn_b").prop("disabled",false);
+          $("#btn_c").prop("disabled",false);
+          $("#btn_d").prop("disabled",false);  
+	  drawTask(data);
       }
       function survey(e){
 	//$("#a_").html(data.sections.     
