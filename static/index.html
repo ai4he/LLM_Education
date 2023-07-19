@@ -282,7 +282,7 @@
         var e, x, res, feed, exType;
        var states = {
             "initial": true,
-            "lastQuestionType": "open",
+            "lastQuestionType": null,
             "lessonGenerated": false
         } 
         var i = 0;
@@ -407,7 +407,7 @@
                         console.log(3);
 
 			if (data.sections.hasOwnProperty('GENERATE_JSON_EVALUATION')) {
-			    if (exType && exType == 'open') {
+			    if (states.lastQuestionType && states.lastQuestionType == 'open') {
 				drawFeedopen();			   		    
 			    }
                         }    
@@ -511,6 +511,7 @@
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
                                     exType = 'multi';
+				    states.lastQuestionType = 'multi';
                                     console.log(exType);
                                 }else if(hasOpen(x)){
                                     $("#btn_a").hide();
@@ -528,6 +529,7 @@
 				    $("#Next").hide();
 				    $("#nextOpen").hide(); 
                                     exType ='open';
+				    states.lastQuestionType = 'open';
                                     console.log(exType);
                                 }
                                 }
@@ -579,7 +581,7 @@
 				    $("#survey").show();
 				    $("#exercise").html(data.sections.FINAL_SURVEY_INTRO);
 				    $("#question").html(data.sections.FINAL_SURVEY_QUESTION);
-                                    exType ='Survey';
+                                    exType ='survey';
                                     console.log(exType);	 
 			 }
 			 if (data.sections.hasOwnProperty('FINAL_SURVEY_QUESTION')) {
