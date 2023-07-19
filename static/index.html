@@ -400,7 +400,7 @@
 			    console.log('GENERATE_JSON_LESSON');
 			    console.log(data.sections.GENERATE_JSON_LESSON);
 			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content.replace('\n','<br>')); 	
+			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content.replaceAll('\n','<br>')); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
