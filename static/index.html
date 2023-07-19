@@ -616,7 +616,8 @@
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
-	  $("#exercise").html('Please wait for AI! It's generating next step!');
+	      const please = document.querySelector("#exercise");
+	      please.innerText= "Please wait for AI! It's generating next step!";
          submitForm(e) 
       }
       function nextOpen(e){
