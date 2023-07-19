@@ -501,7 +501,7 @@
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_TASK') {
 	                                	drawTask();
 						$("#nextOpen").show();
-						if(data.sections.GENERATE_JSON_EVALUATION.hasOwnProperty('answer_feedback'){
+						if(data.sections.GENERATE_JSON_EVALUATION.hasOwnProperty('answer_feedback')){
 							$("#feedback").html(data.sections.GENERATE_JSON_EVALUATION.answer_feedback);	
 						}
 						extype = 'task';
