@@ -648,7 +648,8 @@
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);  
-	      inputs.forEach(input => input.value = '');
+	  inputs.forEach(input => input.value = '');
+	  <a href="javascript:load_state3()"></a>
 	  drawTask();
       }
       function survey(e){
@@ -764,7 +765,7 @@
 	$("#openfeed").show();    
 	$("#Next").hide(); 
 	submitForm($("#writing").val());  
-	
+	<a href="javascript:load_state5()"></a>
 	
     }     
     function drawTask() {
