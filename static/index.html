@@ -374,6 +374,10 @@
             });
 
             if (response.ok) {
+		if (states.initial) {
+			load_state2();
+		}
+		states.initial = false;
                 data = await response.json();
                 hideLoader();
                 
