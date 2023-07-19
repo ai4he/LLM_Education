@@ -181,7 +181,7 @@
         </div>
         <div class="element element--9"></div>
         <div class="element element--10">
-		 <input id="writingSu">
+		
         </div>
         <div class="element element--11"> 
           
@@ -611,7 +611,7 @@
         }
 
       function next(e){
-           $("#feedback").empty()
+          $("#feedback").empty()
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
@@ -619,7 +619,8 @@
          submitForm(e) 
       }
       function nextOpen(e){
-	  $("#feedback").empty()
+	  $("#feedback").empty();
+	   $("#writing").empty();
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
@@ -824,7 +825,8 @@
         $("#c_").hide();
         $("#d_").hide();
         $("#writing").show();  
-	$("#nextOpen").show();
+	$("#writing").empty();
+	$("#Next").show();
 	$("#check").hide();
 	$("#feedbackopen").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
     }
