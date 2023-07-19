@@ -400,7 +400,14 @@
 			    console.log('GENERATE_JSON_LESSON');
 			    console.log(data.sections.GENERATE_JSON_LESSON);
 			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
-			    $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content.replaceAll('\n','<br>')); 	
+			    let tutoring_content = data.sections.GENERATE_JSON_LESSON.tutoring_content;
+			    if (Array.isArray(tutoring_content)) {
+				    tutoring_content =  generateListItems(tutoring_content);
+				    $("#outputLesson").html(tutoring_content);
+			    } else {
+				    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
+			    }
+			    // $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
