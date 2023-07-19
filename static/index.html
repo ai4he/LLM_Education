@@ -916,8 +916,9 @@
         $("#d_").hide();
         $("#writing").show();  
 	$("#writing").empty();
-	$("#Next").show();
+	// $("#Next").show();
 	$("#check").hide();
+	$("#nextOpen").show();
 	if (data.sections.GENERATE_JSON_EVALUATION.answer_feedback) {
 		$("#feedbackopen").html(data.sections.GENERATE_JSON_EVALUATION.answer_feedback);	
 	} else if (data.sections.DECIDE_NEXT_STEP.answer_feedback) {
