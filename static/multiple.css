@@ -6,7 +6,7 @@ body{
 }
 #loader{
 	display: none;
-	background: #000 url('load-1110_128.gif') no-repeat center center;
+	background: #000 url('img/load-1110_128.gif') no-repeat center center;
 }
 #loader.show{
 	display: block;
