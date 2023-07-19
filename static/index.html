@@ -433,6 +433,13 @@
                             $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
 			   	
                         }    
+			    
+			if (data.sections.hasOwnProperty('GENERATE_JSON_EVALUATION')) {
+			    if (exType && exType == 'open') {
+				drawFeedopen();			   		    
+			    }
+                        }    
+			    
                  
                         /*if (data.sections.hasOwnProperty('GENERATE_JSON_TASK')) {
                           
@@ -793,8 +800,8 @@
 
     function checkwriting(){
 	$("#waiting3").show();
-	$("#openfeed").show();    
-	$("#Next").hide(); 
+	$("#openfeed").hide();    
+	$("#nextOpen").hide(); 
 	    $("feedbackopen").empty();
 	submitForm($("#writing").val());  
 	
@@ -887,8 +894,11 @@
 	$("#writing").empty();
 	$("#Next").show();
 	$("#check").hide();
-	$("#feedbackopen").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
-	$("#feedbackopen").html(data.sections.GENERATE_JSON_EVALUATION.answer_feedback);
+	if (data.sections.GENERATE_JSON_EVALUATION.answer_feedback) {
+		$("#feedbackopen").html(data.sections.GENERATE_JSON_EVALUATION.answer_feedback);	
+	} else if (data.sections.DECIDE_NEXT_STEP.answer_feedback) {
+		$("#feedbackopen").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);	
+	}
     }
 	    
     function generateListItems(arg){
