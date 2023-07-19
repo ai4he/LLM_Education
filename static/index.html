@@ -461,7 +461,7 @@
                                 
 
                                 //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
-                                if(hasMulti(x)){
+				if(hasMulti(x)){
                                     $("#btn_a").show();
                                     $("#btn_b").show();
                                     $("#btn_c").show();
@@ -481,7 +481,7 @@
                                     $("#writing").hide();
 				    $("#check").hide(); 
 				    $("#nextOpen").hide(); 
-				    
+				    $("#Next").hide();
 				    $("#survey").hide();
 				    $("#waiting3").show(); 
                                     feed=data.sections.GENERATE_JSON_TASK.task_options_feedback;
