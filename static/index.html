@@ -140,7 +140,7 @@
 		<button id= "survey" ><a href="javascript:load_state4()">Survey</a></button>
         </div>
         <div class="element element--14">
-            <button id= "check" onclick="checkwriting()" >Check Answer</button>
+            <button id= "check" onclick="checkwriting()" ><a href="javascript:load_state5()"> Check Answer</a></button>
             <button id= "Next" onclick="next()" >NEXT</button>
 	    <button id= "nextOpen" onclick="nextOpen()" >NEXT</button>
 	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
@@ -159,6 +159,48 @@
 		    -->
             </div>
 	</div>
+        <div class="element element--18"></div>
+        <div class="element element--19"></div>
+    </section>
+	
+    <section class="container" id="state5">
+        <div class="element element--1"><a href="javascript:load_state1()">Home</a></div>
+        <div class="element element--2"><a href="javascript:load_state2()">Lesson</a></div>
+        <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
+        <div class="element element--4"></div>
+
+        <div class="element element--5">Feedback</div>
+        <div class="element element--7"></div>
+        <div class="element element--8">
+            <img src="/static/img/w5.png" alt="">
+	    <div id="loader">
+	    	<div class= "progress">
+			<div class= "indeterminate" ></div>
+		</div>
+	    </div>
+        </div>
+        <div class="element element--9"></div>
+        <div class="element element--10">
+		 <input id="writingSu">
+        </div>
+        <div class="element element--11"> 
+          
+        </div>
+        <div class="element element--12">
+           
+        </div>
+        <div class="element element--13">
+           
+        </div>
+        <div class="element element--14">
+            
+            <button id= "nextOpen" onclick="nextOpen()" >NEXT</button>
+	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
+
+        </div>
+        <div class="element element--15" id="gpt"></div>
+        <div class="element element--16" id="question"></div>
+        <div class="element element--17"></div>
         <div class="element element--18"></div>
         <div class="element element--19"></div>
     </section>
@@ -209,7 +251,6 @@
         <div class="element element--18"></div>
         <div class="element element--19"></div>
     </section>
-    
 
     <div id="output"></div>
     
