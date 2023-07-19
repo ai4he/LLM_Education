@@ -402,7 +402,7 @@
 			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
 			    let tutoring_content = data.sections.GENERATE_JSON_LESSON.tutoring_content;
 			    if (Array.isArray(tutoring_content)) {
-				    tutoring_content =  generateListItems(tutoring_content);
+				    tutoring_content =  generateListItemRows(tutoring_content);
 				    $("#outputLesson").html(tutoring_content);
 			    } else {
 				    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
@@ -875,6 +875,15 @@
             items += `<li>${arg[i]}</li>`;
         }
           return items;
+    }
+
+    function generateListItemRows(arg){
+        let items = "<ul>";
+        for (let i=0; i<arg.length; i++){
+            items += `<li>${arg[i]}</li>`;
+        }
+	items = "</ul>";
+        return items;
     }
 	    
 	    
