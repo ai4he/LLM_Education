@@ -658,6 +658,15 @@
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);
+	  $("#btn_a").hide();
+          $("#btn_b").hide();
+	  $("#btn_c").hide();
+	  $("#btn_d").hide();
+	  $("#a_").hide();
+	  $("#b_").hide();
+	  $("#c_").hide();
+	  $("#d_").hide();
+	  $("#writing").show();
 	  inputs.forEach(input => input.value = '');
 	      const please = document.querySelector("#exercise");
 	      please.innerText= "Please wait for AI! It's generating next step!";
