@@ -81,13 +81,14 @@
         <div class="element element--3"><a href="javascript:load_state3()">Exercises</a></div>
         <div class="element element--4"></div>
         <div class="element element--5"></div>
-        <div class="element element--7">What destination do you explore?</div>
+<!--         <div class="element element--7">What destination do you explore?</div> -->
+        <div class="element element--7">Scenario</div>
         <div class="element element--8"> 
-           <!-- <img src="/static/img/undraw_Learning_re_32qv.png" alt="">--!>
+           <!-- <img src="/static/img/undraw_Learning_re_32qv.png" alt="">-->
 	    <img src="/static/img/w2.png" alt="">	
         </div>
-        <div class="element element--9">Lecture explanation </div>
-        <div class="element element--10" id="outputVocabulary"></div>
+        <div class="element element--9">Lecture explanation</div>
+<!--         <div class="element element--10" id="outputVocabulary"></div> -->
         <div class="element element--11"></div>
         <div class="element element--12"></div>
         <div class="element element--13" id="outputLesson"></div>
@@ -405,7 +406,7 @@
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
                         }  
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
-                            $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
+                            // $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
                         }
 			    
 			if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
