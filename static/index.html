@@ -406,19 +406,39 @@
                     if (data.hasOwnProperty('sections')) {
                         console.log(3);
 
-
+			if (data.sections.hasOwnProperty('GENERATE_JSON_EVALUATION')) {
+			    if (exType && exType == 'open') {
+				drawFeedopen();			   		    
+			    }
+                        }    
+			    
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
 			    data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
 			    data.sections.GENERATE_JSON_LESSON = getObject(data.sections.GENERATE_JSON_LESSON);
 			    console.log('GENERATE_JSON_LESSON');
 			    console.log(data.sections.GENERATE_JSON_LESSON);
 			    // data.sections.GENERATE_JSON_LESSON = JSON.parse(JSON.stringify(data.sections.GENERATE_JSON_LESSON, null,2));
-			    let tutoring_content = data.sections.GENERATE_JSON_LESSON.tutoring_content;
-			    if (Array.isArray(tutoring_content)) {
-				    tutoring_content =  generateListItemRows(tutoring_content);
-				    $("#outputLesson").html(tutoring_content);
-			    } else {
-				    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
+			    if (data.sections.GENERATE_JSON_LESSON.hasOwnProperty('tutoring_content')) {
+				    let tutoring_content = data.sections.GENERATE_JSON_LESSON.tutoring_content;
+				    if (Array.isArray(tutoring_content)) {
+					    tutoring_content =  generateListItemRows(tutoring_content);
+					    $("#outputLesson").html(tutoring_content);
+				    } else {
+					    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
+				    }
+			    } else if (data.sections.GENERATE_JSON_LESSON.hasOwnProperty('tutoring_lessons')) {
+				    if (Array.isArray(data.sections.GENERATE_JSON_LESSON.tutoring_lessons)) {
+					let lessons = data.sections.GENERATE_JSON_LESSON.tutoring_lessons;
+					if (lessons[0].hasOwnProperty('tutoring_content')) {
+					    let tutoring_content = lessons[0].tutoring_content;
+					    if (Array.isArray(tutoring_content)) {
+						    tutoring_content =  generateListItemRows(tutoring_content);
+						    $("#outputLesson").html(tutoring_content);
+					    } else {
+						    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
+					    }
+					}
+				    }
 			    }
 			    // $("#outputLesson").html(data.sections.GENERATE_JSON_LESSON.tutoring_content); 	
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
@@ -432,12 +452,6 @@
 			if (data.sections.hasOwnProperty('GENERATE_SCENARIO')) {
                             $("#outputScenario").html(data.sections.GENERATE_SCENARIO);
 			   	
-                        }    
-			    
-			if (data.sections.hasOwnProperty('GENERATE_JSON_EVALUATION')) {
-			    if (exType && exType == 'open') {
-				drawFeedopen();			   		    
-			    }
                         }    
 			    
                  
