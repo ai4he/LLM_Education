@@ -50,9 +50,15 @@
 
         <div class="element element--11"></div>
         <div class="element element--12">
-            <div id="myProgress">
+	    <div class="loader">
+	    	<div class= "progress">
+			<div class= "indeterminate" ></div>
+		</div>
+	    </div>
+<!--             <div id="myProgress">
                 <div class="progress-bar" data-label="Preparing your lesson..." ></div>
-            </div>
+            </div> -->
+	    
         </div>
         <div class="element element--13"> <button><a href="javascript:load_state2()">NEXT</a></button></div>
         <div class="element element--14"></div>
@@ -375,6 +381,7 @@
 
             if (response.ok) {
 		if (states.initial) {
+			hideLoader();
 			load_state2();
 		}
 		states.initial = false;
