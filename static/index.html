@@ -281,9 +281,9 @@
 	var data = {};
         var e, x, res, feed, exType;
        var states = {
-            "initial" : true,
-            "lastQuestionType": "open"
-            
+            "initial": true,
+            "lastQuestionType": "open",
+            "lessonGenerated": false
         } 
         var i = 0;
 	let inputs = document.querySelectorAll('input');
@@ -413,6 +413,7 @@
                         }    
 			    
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
+			    states.lessonGenerated = true;
 			    data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
 			    data.sections.GENERATE_JSON_LESSON = getObject(data.sections.GENERATE_JSON_LESSON);
 			    console.log('GENERATE_JSON_LESSON');
@@ -444,7 +445,10 @@
                             //$("#outputLesson").html(generateListItems(data.sections.GENERATE_JSON_LESSON.tutoring_content));
 				console.log(data.sections.GENERATE_JSON_LESSON);
 				console.log(data.sections.GENERATE_JSON_LESSON.tutoring_content);
-                        }  
+                        }  else {
+				states.lessonGenerated = false;
+			}
+			    
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
                             // $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
                         }
