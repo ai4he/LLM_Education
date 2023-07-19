@@ -198,7 +198,7 @@
 	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
 
         </div>
-        <div class="element element--15" id="gpt"></div>
+        <div class="element element--15" id="feedbackopen"></div>
         <div class="element element--16" id="question"></div>
         <div class="element element--17"></div>
         <div class="element element--18"></div>
@@ -484,7 +484,7 @@
 						
 					}
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_TASK') {
-	                                	drawTask(data);
+	                                	drawTask();
 						extype = 'survey';
 						// return extype='survey';
 					}
@@ -624,7 +624,7 @@
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
           $("#btn_d").prop("disabled",false);  
-	  drawTask(data);
+	  drawTask();
       }
       function survey(e){
 	//$("#a_").html(data.sections.     
@@ -646,7 +646,7 @@
 	  if(extype=='open'){
 		  console.log('ifNextOpen');
 		$("#feedback").html(data.sections.DECIDE_NEXT_STEP.GENERATE_JSON_EVALUATION.answer_feedback);	 
-		drawTask(data);
+		drawTask();
 	  }
 	      
 	  if (extype=='survey'){
@@ -742,7 +742,7 @@
 	
 	
     }     
-    function drawTask(data) {
+    function drawTask() {
 	x=data.sections.GENERATE_JSON_TASK.task_type;
 	$("#exercise").html(data.sections.GENERATE_JSON_TASK.task_prompt);
     //if(data.sections.GENERATE_JSON_TASK.task_type == 'multiple_choice'|| data.sections.GENERATE_JSON_TASK.task_type == 'multiple choice'){
@@ -787,7 +787,7 @@
         }
     }    
 
-    function drawSurvey(data){
+    function drawSurvey(){
 	$("#btn_a").hide();
         $("#btn_b").hide();
         $("#btn_c").hide();
@@ -826,7 +826,7 @@
         $("#writing").show();  
 	$("#nextOpen").show();
 	$("#check").hide();
-	$("#feedback").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
+	$("#feedbackopen").html(data.sections.DECIDE_NEXT_STEP.answer_feedback);
     }
 	    
     function generateListItems(arg){
