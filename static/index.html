@@ -706,7 +706,8 @@
       }
       function nextOpen(e){
 	  $("#feedback").empty();
-	   $("#writing").empty();
+	  $("feedbackopen").empty();
+	  $("#writing").empty();
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
@@ -828,7 +829,7 @@
 	$("#waiting3").show();
 	$("#openfeed").hide();    
 	$("#nextOpen").hide(); 
-	    $("feedbackopen").empty();
+	$("feedbackopen").empty();
 	submitForm($("#writing").val());  
 	
 	
