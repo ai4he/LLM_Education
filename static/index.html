@@ -709,7 +709,8 @@
 	  $("#btn_a").prop("disabled",false);
           $("#btn_b").prop("disabled",false);
           $("#btn_c").prop("disabled",false);
-          $("#btn_d").prop("disabled",false);  
+          $("#btn_d").prop("disabled",false); 
+	  $("#check").show();
 	  inputs.forEach(input => input.value = '');
 	  
 	  //drawTask();
@@ -917,7 +918,7 @@
         $("#writing").show();  
 	$("#writing").empty();
 	// $("#Next").show();
-	$("#check").hide();
+	//$("#check").hide();
 	$("#nextOpen").show();
 	if (data.sections.GENERATE_JSON_EVALUATION.answer_feedback) {
 		$("#feedbackopen").html(data.sections.GENERATE_JSON_EVALUATION.answer_feedback);	
