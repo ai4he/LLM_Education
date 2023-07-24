@@ -458,7 +458,7 @@ system_states = get_system_states()
 system_msg = get_system_prompt()
 
 web_type = 'server'
-port = 5000
+port = 6000
 
 app = Flask(__name__, template_folder='static', static_folder='static')
 
