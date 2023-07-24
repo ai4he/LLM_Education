@@ -467,6 +467,9 @@
 			}
 			    
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
+				if (!data.sections.GENERATE_JSON_LESSON.hasOwnProperty('tutoring_content')) {
+					$("#outputLesson").html(data.sections.GENERATE_LESSON);
+				}
                             // $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
                         }
 			    
@@ -843,6 +846,7 @@
 	$("#openfeed").hide();    
 	$("#nextOpen").hide(); 
 	$("feedbackopen").empty();
+	$("#check").hide();
 	submitForm($("#writing").val());  
 	
 	
