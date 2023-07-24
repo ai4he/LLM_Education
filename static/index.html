@@ -218,7 +218,7 @@
         </div>
         <div class="element element--14">
             
-            <button id= "nextOpen" onclick="nextOpen()" ><a href="javascript:load_state3()">NEXT</a></button>
+            <button id= "nextOpen" onclick="next_Open()" ><a href="javascript:load_state3()">NEXT</a></button>
 	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
 
         </div>
@@ -720,7 +720,7 @@
 	      please.innerText= "Please wait for AI! It's generating next step!";
          submitForm(e) 
       }
-      function nextOpen(e){
+      function next_Open(e){
 	  $("#feedback").empty();
 	  $("feedbackopen").html('');
 	  $("#writing").empty();
