@@ -95,7 +95,7 @@
         <div class="element element--4">
 		<p>
 			Validation code 1 <br>
-			wiEDj43
+			<span id="seessionId"></span> 
 		</p>
 	</div>
         <div class="element element--5"></div>
@@ -423,6 +423,7 @@
                 console.log(1);
                 if (data.hasOwnProperty('session_id')) {
                     session_id = data.session_id;
+			seessionId.innerHTML = "data.session_id";
                     console.log(2);
                    // document.getElementById('session_id').value = data.session_id;
                     if (data.hasOwnProperty('sections')) {
