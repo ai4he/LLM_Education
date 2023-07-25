@@ -428,7 +428,10 @@
 				drawFeedopen();			   		    
 			    }
                         }    
-			    
+			if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
+                             $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
+                        }  
+			if (!data.sections.hasOwnProperty('GENERATE_LESSON')){    
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
 			    states.lessonGenerated = true;
 			    data.sections.GENERATE_JSON_LESSON = fixJSON(data.sections.GENERATE_JSON_LESSON);
@@ -465,7 +468,7 @@
                         }  else {
 				states.lessonGenerated = false;
 			}
-			    
+			}   
                         if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
 				if (!data.sections.GENERATE_JSON_LESSON.hasOwnProperty('tutoring_content')) {
 					$("#outputLesson").html(data.sections.GENERATE_LESSON);
