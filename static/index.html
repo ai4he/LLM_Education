@@ -417,6 +417,7 @@
                 //     <p><strong>Goal:</strong> ${data.goal}</p>
                 //     <p><strong>Activities:</strong> ${data.activities}</p>
                 // `;**
+		outputDiv.innerHTML = 'Ready ...';
                 outputDiv.innerHTML = JSON.stringify(data);
                 console.log(1);
                 if (data.hasOwnProperty('session_id')) {
