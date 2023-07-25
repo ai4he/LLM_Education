@@ -110,7 +110,7 @@ div{
 .element--7{
     /*background-color: sienna;*/
     grid-area: e7;
-    font-size: 30px;
+    font-size: medium;
 }
 .element--8{
     grid-area: e8;
