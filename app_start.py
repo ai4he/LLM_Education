@@ -208,6 +208,7 @@ def process_input(session_id, input_dict):
   reply = reply_obj['reply']
   stopped_by_token = reply_obj['stop']
   session['messages'].append({"role": "assistant", "content": reply})
+  json.dump(session['messages'], open(f'data/speak/{session_id}.json','w'))
   # print('\nDEBUG',input_dict,output_state)
   reply = f'{output_state}: ' + reply
   sections = parse_text(reply)
