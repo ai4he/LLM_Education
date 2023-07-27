@@ -438,7 +438,14 @@
 			    }
                         }    
 			if (data.sections.hasOwnProperty('GENERATE_LESSON')) {
-                             $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
+				let tutor_lesson = data.sections.GENERATE_LESSON;
+				if (Array.isArray(tutor_lesson)) {
+					tutor_lesson =  generateListItemRows(tutor_lesson);
+					$("#outputVocabulary").html(tutor_lesson);
+				    } else {
+					    $("#outputVocabulary").html(tutor_lesson.replaceAll('\n','<br>'));
+				    }
+                            // $("#outputVocabulary").html(data.sections.GENERATE_LESSON);
                         }  
 			   
 			if (data.sections.hasOwnProperty('GENERATE_JSON_LESSON')) {
