@@ -441,6 +441,7 @@
 				let tutor_lesson = data.sections.GENERATE_LESSON;
 				if (Array.isArray(tutor_lesson)) {
 					tutor_lesson =  generateListItemRows(tutor_lesson);
+					tutor_lesson = tutor_lesson.replaceAll('\n','<br>');
 					$("#outputVocabulary").html(tutor_lesson);
 				    } else {
 					    $("#outputVocabulary").html(tutor_lesson.replaceAll('\n','<br>'));
@@ -459,6 +460,7 @@
 				    let tutoring_content = data.sections.GENERATE_JSON_LESSON.tutoring_content;
 				    if (Array.isArray(tutoring_content)) {
 					    tutoring_content =  generateListItemRows(tutoring_content);
+					    tutoring_content = tutoring_content.replaceAll('\n','<br>');
 					    $("#outputLesson").html(tutoring_content);
 				    } else {
 					    $("#outputLesson").html(tutoring_content.replaceAll('\n','<br>'));
