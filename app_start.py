@@ -130,24 +130,27 @@ def process(session_id):
 def extract_json(text_field):
   json_pattern = r'(\[\s*{.*}\s*\])|({\s*".*":\s*".*".*})'
   json_string = re.search(json_pattern, text_field, re.DOTALL)
-  if json_string:
-    return json.loads(json_string.group())
-  else:
-    json_string = re.search(json_pattern, '{' + text_field, re.DOTALL)
+  try:
     if json_string:
       return json.loads(json_string.group())
     else:
-      json_string = re.search(json_pattern, '{' + text_field + '}', re.DOTALL)
+      json_string = re.search(json_pattern, '{' + text_field, re.DOTALL)
       if json_string:
         return json.loads(json_string.group())
       else:
-        json_string = re.search(json_pattern, '[' + text_field, re.DOTALL)
+        json_string = re.search(json_pattern, '{' + text_field + '}', re.DOTALL)
         if json_string:
           return json.loads(json_string.group())
         else:
-          json_string = re.search(json_pattern, '[' + text_field + ']', re.DOTALL)
+          json_string = re.search(json_pattern, '[' + text_field, re.DOTALL)
           if json_string:
             return json.loads(json_string.group())
+          else:
+            json_string = re.search(json_pattern, '[' + text_field + ']', re.DOTALL)
+            if json_string:
+              return json.loads(json_string.group())
+  except:
+    return {}
   return {}
 
 def get_dict(json_string):
