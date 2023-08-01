@@ -225,6 +225,7 @@
         <div class="element element--14">
             
             <button id= "nextOpen" onclick="next_Open()" ><a href="javascript:load_state3()">NEXT</a></button>
+	    <button id= "nextLesson" onclick="" ><a href="javascript:load_state2()">Lesson</a></button>
 	    <button id= "openfeed" onclick="drawFeedopen()" >Feedback</button>
 
         </div>
@@ -547,6 +548,7 @@
                                     $("#writing").hide();
 				    $("#check").hide(); 
 				    $("#nextOpen").hide(); 
+				    $("#nextLesson").hide(); 
 				    $("#Next").hide();
 				    $("#survey").hide();
 				    $("#waiting3").show(); 
@@ -568,7 +570,8 @@
 				    $("#survey").hide();
 				    $("#waiting3").show();
 				    $("#Next").hide();
-				    $("#nextOpen").hide(); 
+				    $("#nextOpen").hide();
+				    $("#nextLesson").hide();
                                     exType ='open';
 				    states.lastQuestionType = 'open';
                                     console.log(exType);
@@ -584,10 +587,11 @@
 				console.log(data);
 				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_LESSON') {
+						$("#nextLesson").show();
 						const newlesson = document.querySelector("#exercise");
-	      					newlesson.innerText= "A new Lesson has been generated. Please click in the link Lesson, review it and then comeback to do the exercise";
+	      					newlesson.innerText= "A new Lesson has been generated. Please click on the link Lesson, review it, and then come back to do the exercise";
 	                                	const newlesson1 = document.querySelector("#feedbackopen");
-						newlesson1.innerText= "A new Lesson has been generated. Please click in the link Lesson, review it and then comeback to do the exercise";
+						newlesson1.innerText= "A new Lesson has been generated. Please click on the link Lesson, review it, and then come back to do the exercise";
 					}
 					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_TASK') {
 	                                	drawTask();
