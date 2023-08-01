@@ -586,7 +586,7 @@
 				// console.log('data after decidenext steps');
 				console.log(data);
 				if (data.sections.DECIDE_NEXT_STEP.hasOwnProperty('next_step')) {
-					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_JSON_LESSON') {
+					if(data.sections.DECIDE_NEXT_STEP.next_step == 'GENERATE_LESSON') {
 						$("#nextLesson").show();
 						const newlesson = document.querySelector("#exercise");
 	      					newlesson.innerText= "A new Lesson has been generated. Please click on the link Lesson, review it, and then come back to do the exercise";
