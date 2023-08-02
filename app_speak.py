@@ -445,8 +445,8 @@ preset = 'speak.json'
 prompt_file = preset
 # openai_model = "gpt-3.5-turbo-16k"
 # openai_model = "gpt-3.5-turbo"
-# openai_model = "gpt-4"
-openai_model = "gpt-4-0314"
+openai_model = "gpt-4"
+# openai_model = "gpt-4-0314"
 sessions = {}
 max_iterations = 2
 
